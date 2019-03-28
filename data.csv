@@ -1,0 +1,26 @@
+﻿name;gender;email;hours since last eat;sweetness_A;texture_A;flavour_A;visual_A;overall_A;sweetness_B;texture_B;flavour_B;visual_B;overall_B;guess_expensive
+Joel;m;joel.maupin@embo.org;5;4;2;4;5;5;8;7;9;5;8;B
+Maria L;f;maira.leptin@embo.org;;;;;;;;;;;;B
+Joy;f;joy.akinyi@embo.org;2;;;;;;;;;;;B
+Steve;m;stephen.pewter@embo.org;12;7;5;6;5;6;5;6;7;5;7;B
+Karin;f;karin.dumstrei@embo.org;;7;7;7;5;7;8;8;7;6;7,5;B
+Lise;f;lise.roth@embo.org;;7;8;7;9;7;9;8;9;7;9;A
+Helen;f;helen.sitar@embo.org;3;9;8;7;5;9;4;8;6;7;7;A
+Gilda;f;gilda.motzny@embo.org;3;7;8;8;7;7,5;6;7;7;7;7;A
+Raimonda;f;raimonda.augutyte@embo.org;3;8;8;9;10;9;6;7;8;9;7;A
+Celine;f;celine.carret@embo.org;4,5;6;7;8;4;;7;6;7;3;;A
+Annika G;f;annika.grandison@embo.org;3;6;8;7;4;7;5;4;3;7;5;A
+Bernd;m;bernd.pulverer@embo.org;0;6;10;10;8;9;8;3;3;3;4;A
+Bettina;f;bettina.trueb@embo.org;3;6;9;8;8;8;8;5;6;5;5;A
+Eilish;f;eilish.craddock@embo.org;1;6;4;8;8;;7;5;4;2;;A
+Ayesha;f;ayesha.asif@embo.org;17;6;4;6;2;5;8;5;3;3;7;A
+Martina;f;martina.rembold@embo.org;3;9;8;7;6;8;8;6;10;7;7;A
+Igor;m;igor.jukic@embo.org;12;9;8;8;5;8;6;6;5;8;6;A
+Fiona;f;fiona.panyai@embo.org;3;4;4;4;4;4;4;6;5;4;5;B
+Thomas;m;thomas.lemberger@embo.org;18;7;6;5;3;7;6;5;7;3;7;B
+Betsi;f;betsi.flores@embo.org;2;7;7;9;5;;8;8;8;7;;B
+Sandra B.;f;bendisci@embo.org;3;8;8;10;8;10;10;10;9;10;10;B
+Sophia;f;sophia.hercus@embo.org;4;7;5;5;6;6;6;8;7;8;8;B
+Chris;m;christopher.rickerby@embo.org;2;6;4;8;4;7;4;4;9;5;8;B
+Erica;f;erica.boxheimer@embo.org;3;7;10;9;8;9;4;7;7;8;7;B
+Jingy;f;jingyi.hou@embo.org;3;5;9;5;8;5;9;7;9;8;9;B

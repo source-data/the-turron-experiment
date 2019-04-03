@@ -5,10 +5,11 @@ import seaborn as sns
 
 
 # %%
-df = pd.read_csv("data.csv", sep=";", dtype={
+df = pd.read_csv("data.csv", sep=",", dtype={
     'name': str,
     'gender': str,
     'email': str,
+    'first_time_tasting': str,
     'hours since last eat': np.float64,
     'sweetness_A': np.float64,
     'texture_A': np.float64,
@@ -24,7 +25,7 @@ df = pd.read_csv("data.csv", sep=";", dtype={
 })
 df
 #%%
-melted = pd.melt(df.dropna(), id_vars=['name', 'gender'], value_vars=[
+melted = pd.melt(df.dropna(), id_vars=['name', 'gender', 'first_time_tasting'], value_vars=[
     # 'hours since last eat',
     'sweetness_A',
     'texture_A',
@@ -55,6 +56,11 @@ melted = melted.apply(rename_variables, axis=1)
 melted
 
 
+
+#%%
+
+
+
 # melted['variable'].str.contains("_A")
 # melted.apply(lambda x: 1)
 
@@ -76,5 +82,10 @@ for param  in ['texture', 'flavour', 'visual', 'sweetness', 'overall']:
 
 #%%
 sns.catplot(x="variable", y="value", hue="gender", kind="bar", data=melted)
+sns.catplot(x="variable", y="value", hue="turron", kind="bar", data=melted)
+
+#%%
+melted
+sns.catplot(x="variable", y="value", hue="first_time_tasting", kind="bar", data=melted)
 
 #%%

@@ -2,7 +2,9 @@
 import pandas as pd
 import numpy as np
 import seaborn as sns
-
+import scipy
+import scipy.stats as stats
+import matplotlib.pyplot as plt
 
 # %%
 df = pd.read_csv("data.csv", sep=",", dtype={
@@ -25,7 +27,7 @@ df = pd.read_csv("data.csv", sep=",", dtype={
 })
 df
 #%%
-melted = pd.melt(df.dropna(), id_vars=['name', 'gender', 'first_time_tasting'], value_vars=[
+melted = pd.melt(df, id_vars=['name', 'gender', 'first_time_tasting', 'correct_guess'], value_vars=[
     # 'hours since last eat',
     'sweetness_A',
     'texture_A',
@@ -37,7 +39,7 @@ melted = pd.melt(df.dropna(), id_vars=['name', 'gender', 'first_time_tasting'], 
     'flavour_B',
     'visual_B',
     'overall_B',
-])
+]).dropna()
 melted
 def get_turron_name(row):
     if "_A" in row['variable']:
@@ -70,8 +72,10 @@ melted
 # melted[mask]
 melted['composite_variable'] = melted['variable'] + melted['turron']
 melted
+#%% [markdown]
+# ## Comparing attributes between groups
+#
 #%%
-
 for param  in ['texture', 'flavour', 'visual', 'sweetness', 'overall']:
     melted['composite_variable'] = melted['variable'] + melted['turron']
     param_a = param+"A"
@@ -80,12 +84,32 @@ for param  in ['texture', 'flavour', 'visual', 'sweetness', 'overall']:
     sns.catplot(x="composite_variable", y="value", hue="gender", kind="point", data=melted[mask])
 
 
+#%% [markdown]
+# ## By Gender
 #%%
 sns.catplot(x="variable", y="value", hue="gender", kind="bar", data=melted)
+
+#%% [markdown]
+# ## By Turron
+#%%
 sns.catplot(x="variable", y="value", hue="turron", kind="bar", data=melted)
 
 #%%
-melted
 sns.catplot(x="variable", y="value", hue="first_time_tasting", kind="bar", data=melted)
+sns.catplot(x="variable", y="value", hue="correct_guess", kind="bar", data=melted)
 
 #%%
+
+contingency = pd.crosstab(df.first_time_tasting, df.correct_guess)
+oddsratio, pvalue = stats.fisher_exact(contingency)
+print(f"p-value: ", pvalue)
+non_naive = contingency.loc['N'].sum()
+naive = contingency.loc['Y'].sum()
+correct_non_naive = contingency.loc['N', 'Y']
+correct_naive = contingency.loc['Y', 'Y']
+sns.barplot(x=['naive','non-naive'], y=[ correct_naive/naive, correct_non_naive/non_naive ])
+plt.title(f'success rate\nnaive: people that had never before tasted turron\nnon-naive: people who had tasted turron before\np-value: {pvalue}')
+
+#%% [markdown]
+# # Paired 2-way anova statistical analysis
+# https://raphaelvallat.com/pingouin.html

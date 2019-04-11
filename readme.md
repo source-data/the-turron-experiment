@@ -30,3 +30,9 @@ The advantage of this system is that it allows you to control which python versi
 
 4. Open the python file with the code and run the first cell
 
+
+# TODO:
+- [] Hours: see if there is any correlation between score/type of turron and the numbers of hours since people last eat
+- [] Delta: calculate the difference between turron A and B (delta) to see differences (maybe plot this bar charts that go up/down or left/right)
+- [] Contradiccion: look for patterns were people liked better A but thought B was the expensive one (or viceversa)
+- [] calculate all the paired tests

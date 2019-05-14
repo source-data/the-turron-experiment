@@ -38,3 +38,7 @@ The advantage of this system is that it allows you to control which python versi
 - [x] Contradiccion: look for patterns were people liked better A but thought B was the expensive one (or viceversa)
 - [x] analyse gender by turron interaction
 - [] structure report
+- cleanup
+    - [] one melted to rule them all
+    - [] group analysis by theme
+    - []

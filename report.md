@@ -1,6 +1,13 @@
 # INDEX
 
 ## Summary
+
+In order to get practical experience with data collection and analysis, we conducted a turrón tasting experiment with the collaboration of EMBO staff. We asked 24 participants to taste 2 turrón varieties, one that was expensive and one that was cheap. Participants were blind as to which variety was which. We asked participants to (i) score each turrón in several parameters and (ii) guess which of 2 varieties was the expensive one. 
+
+Data collected in this experiment show no significant difference in scoring for the cheap vs. expensive turrón. We also observed a 50-50 percentage of guesses that A (or B) was the expensive turrón. We could not detect any significant correlation between fasting time and turrón scoring, nor did we observe significant interactions between gender and scoring or gender and accuracy of guess. We did observe that participants that had already tasted turrón before were better at guessing which of the 2 was the more expensive variant. 
+
+The experiment was limited in sample size, so no solid conclusions can be driven. However, data collected in this experiment suggest that an expensive and a cheap turrón cannot be distinguished in a blind tasting. 
+
 ## Introduction
 
 Altough EMBO is a scientific organisation, not all staff comes from a scientific background. We did this experiment as part of a **learning exercise to get acquainted with concepts like experimental design, data collection, data analysis and reporting**. We were convinced that forcing ourselves to do as realistic an experiment as possible would give us the biggest learning outcome. 
@@ -31,7 +38,7 @@ All in all, it was a useful experiment to learn the basics of experimental desig
 
 <!-- * Why did we do this?
 * Motivation
-* Why not the tea lady tasting -->
+ -->
 
 ## Limitations
 
@@ -44,10 +51,22 @@ All in all, it was a useful experiment to learn the basics of experimental desig
     * small group
     * score very similar in between turróns
 
-## Experimental design
+## Experimental design and procedure
+
+
+The aim of the experiment was to **test whether a large price difference in turrón would manifest in a significant difference in scoring and overall liking in a blind tasting**. 
+
+We designed the experiment such that **each participant would taste both turrones**. We predefined a time frame of 1h in which participants would taste. We portioned each turrón into approximately 1cm3 pieces on 2 identical plates and located them in neighboring but separate rooms. We advised participants that they should score both turrones independently (to the extent possible). Participants were naive in what they were going to be asked about. As they arrived, we told them that there were 2 turrón varieties, one cheap, one expensive. We asked them to taste both and then score them  by filling in the questionnaire below. We also asked them to guess which one of the 2 turrones they thought was the expensive one. 
+
+
 
 * logic for data collection
 * questions
+
+## Statistical analysis
+
+* Describe each of the analyses performed and the choice of test for each
+* Table with final n number (after NA removal) for each analysis
 
 ###  Data collection
 
@@ -68,10 +87,21 @@ All in all, it was a useful experiment to learn the basics of experimental desig
 * In context with other similar or related analysis
 * Refer to the yoguhrt experiment
 * Better questions (e.g. the 'sweetness' parameter invalidated because some people scored which one was sweeter and others scored which of the 2 they liked better for sweetness)
+* Why not the tea lady tasting
+  
 
 ## Conclusions
 
-* most people have breakfast bw 7-9am
+* There is no big difference in liking or general scoring between cheap and expensive turrón
+* most people at EMBO have breakfast bw 7-9am
+* There is no effect of fasting on turrón scoring
+* The sweetness question was too ambiguous
+* Non-naive tasters tended to be better at guessing which was the expensive variant
+* Female participants tended to generally score better for texture and visual
+* Most participants were coherent in their scoring-guessing 
 * some people cannot process information on our ballots
+
+
+* 
 
 

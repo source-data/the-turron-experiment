@@ -59,7 +59,6 @@ The aim of the experiment was to **test whether a large price difference in turr
 We designed the experiment such that **each participant would taste both turrones**. We predefined a time frame of 1h in which participants would taste. We portioned each turrón into approximately 1cm3 pieces on 2 identical plates and located them in neighboring but separate rooms. We advised participants that they should score both turrones independently (to the extent possible). Participants were naive in what they were going to be asked about. As they arrived, we told them that there were 2 turrón varieties, one cheap, one expensive. We asked them to taste both and then score them  by filling in the questionnaire below. We also asked them to guess which one of the 2 turrones they thought was the expensive one. 
 
 
-
 * logic for data collection
 * questions
 
@@ -103,27 +102,27 @@ We designed the experiment such that **each participant would taste both turrone
 * some people cannot process information on our ballots
 
 
-## Q and A
+## Q&A
 
-(1) Why did you do this? 
+**Why did you do this?**
 We wanted to play around with data collection and analysis concepts and we thought conducting a real experiment would be fun and practical.
 
-(2) ¿Why did you use turrón?
+**¿Why did you use turrón?**
 This was just by chance. Alex happened to have brought back 2 very differently priced varieties of the same kind of turrón from Spain so we went with that.
 
-(3) Why did you ask so many questions?
+**Why did you ask so many questions?**
 We wanted to collect as much data as possible in one go, so we asked about different aspects that have to do with taste and liking of turrón.
 
-(4) What's the main result?
+**What's the main result?**
 That there is no difference in scoring between an expensive and a cheap turrón in a random sample of 24 participants that tasted blindly
 
-(5) How many people got it right?
+**How many people got it right?**
 50%
 
-(6) This is not really a serious experiment. Your sample size is too small. Your analysis is flawed. You did not formulate the right hypothesis [insert any other nasty (but probably true) statements here]
+**This is not really a serious experiment. Your sample size is too small. Your analysis is flawed. You did not formulate the right hypothesis [insert any other nasty (but probably true) statements here]**
 We know :-) We just wanted to play around with data collection and analysis concepts, this is just for demonstration purposes. Also, you were all wanting to know if you guessed correctly which one of the 2 turrones was the expensive one :-D
 
-(7) Can I see the data?
+**Can I see the data?**
 Yep! It's all right [here](linkToDataOnGitHub)
 
 

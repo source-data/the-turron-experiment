@@ -79,6 +79,7 @@ We designed the experiment such that **each participant would taste both turrone
 * turrón:first_time_tasting
 * coherence analysis
 * correlation with fasting
+* [for presentation only?] results of individual guessing accuracy
 
 * Missing data (and how to handle)
 
@@ -102,6 +103,30 @@ We designed the experiment such that **each participant would taste both turrone
 * some people cannot process information on our ballots
 
 
-* 
+## Q and A
+
+(1) Why did you do this? 
+We wanted to play around with data collection and analysis concepts and we thought conducting a real experiment would be fun and practical.
+
+(2) ¿Why did you use turrón?
+This was just by chance. Alex happened to have brought back 2 very differently priced varieties of the same kind of turrón from Spain so we went with that.
+
+(3) Why did you ask so many questions?
+We wanted to collect as much data as possible in one go, so we asked about different aspects that have to do with taste and liking of turrón.
+
+(4) What's the main result?
+That there is no difference in scoring between an expensive and a cheap turrón in a random sample of 24 participants that tasted blindly
+
+(5) How many people got it right?
+50%
+
+(6) This is not really a serious experiment. Your sample size is too small. Your analysis is flawed. You did not formulate the right hypothesis [insert any other nasty (but probably true) statements here]
+We know :-) We just wanted to play around with data collection and analysis concepts, this is just for demonstration purposes. Also, you were all wanting to know if you guessed correctly which one of the 2 turrones was the expensive one :-D
+
+(7) Can I see the data?
+Yep! It's all right [here](linkToDataOnGitHub)
+
+
+
 
 

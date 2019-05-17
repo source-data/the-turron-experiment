@@ -2,33 +2,33 @@
 
 ## Summary
 
-In order to get practical experience with data collection and analysis, we conducted a turrón tasting experiment with the collaboration of EMBO staff. We asked 24 participants to taste 2 turrón varieties, one that was expensive and one that was cheap. Participants were blind as to which variety was which. We asked participants to (i) score each turrón in several parameters and (ii) guess which of 2 varieties was the expensive one. 
+In order to get practical experience with data collection and analysis, we conducted a turrón tasting experiment with the collaboration of EMBO staff. We asked 24 participants to taste 2 turrón varieties, one that was expensive and one that was cheap. Participants were blind as to which variety was which. We asked participants to (i) score each turrón in several parameters and (ii) guess which of 2 varieties was the expensive one.
 
-Data collected in this experiment show no significant difference in scoring for the cheap vs. expensive turrón. We also observed a 50-50 percentage of guesses that A (or B) was the expensive turrón. We could not detect any significant correlation between fasting time and turrón scoring, nor did we observe significant interactions between gender and scoring or gender and accuracy of guess. We did observe that participants that had already tasted turrón before were better at guessing which of the 2 was the more expensive variant. 
+Data collected in this experiment show no significant difference in scoring for the cheap vs. expensive turrón. We also observed a 50-50 percentage of guesses that A (or B) was the expensive turrón. We could not detect any significant correlation between fasting time and turrón scoring, nor did we observe significant interactions between gender and scoring or gender and accuracy of guess. We did observe that participants that had already tasted turrón before were better at guessing which of the 2 was the more expensive variant.
 
-The experiment was limited in sample size, so no solid conclusions can be driven. However, data collected in this experiment suggest that an expensive and a cheap turrón cannot be distinguished in a blind tasting. 
+The experiment was limited in sample size, so no solid conclusions can be driven. However, data collected in this experiment suggest that an expensive and a cheap turrón cannot be distinguished in a blind tasting.
 
 ## Introduction
 
-Altough EMBO is a scientific organisation, not all staff comes from a scientific background. We did this experiment as part of a **learning exercise to get acquainted with concepts like experimental design, data collection, data analysis and reporting**. We were convinced that forcing ourselves to do as realistic an experiment as possible would give us the biggest learning outcome. 
+Altough EMBO is a scientific organisation, not all staff comes from a scientific background. We did this experiment as part of a **learning exercise to get acquainted with concepts like experimental design, data collection, data analysis and reporting**. We were convinced that forcing ourselves to do as realistic an experiment as possible would give us the biggest learning outcome.
 
-Since we had 2 turrón varieties of the same kind but of very different prices at hand, we reasoned that it would be a 'fun' experiment to **have EMBO staff try to differentiate those 2 varieties from each other simply by a series of parameters, including taste, texture, and visual appearance**. 
+Since we had 2 turrón varieties of the same kind but of very different prices at hand, we reasoned that it would be a 'fun' experiment to **have EMBO staff try to differentiate those 2 varieties from each other simply by a series of parameters, including taste, texture, and visual appearance**.
 
-Turrón variety #1 ('expensive_turrón' or 'turrón_A') cost 5x as much as turrón variety #2 ('cheap_turrón' or 'turrón_B'). We designed a simple experiment in which volunteers would taste both turrón varieties and then be asked to fill in a questionnaire. They scored both turrones on parameters 'texture', 'visual appearace', 'taste', 'sweetness' and 'overall score'. Our aim with these questions was to collect information that would help us evaluate whether subjects had a preference for turrón A or turrón B. 
+Turrón variety #1 ('expensive_turrón' or 'turrón_A') cost 5x as much as turrón variety #2 ('cheap_turrón' or 'turrón_B'). We designed a simple experiment in which volunteers would taste both turrón varieties and then be asked to fill in a questionnaire. They scored both turrones on parameters 'texture', 'visual appearace', 'taste', 'sweetness' and 'overall score'. Our aim with these questions was to collect information that would help us evaluate whether subjects had a preference for turrón A or turrón B.
 
-In addition to turrón-related parameters, we also asked participants to answer the following questions: 
+In addition to turrón-related parameters, we also asked participants to answer the following questions:
 
 * Which of the 2 turrones do you think is the expensive one? - This question would allow us to analyse guess accuracy and coherence between turrón scoring and guess. It was also a great motivator to engage participants, as they were presented with a challenge.
 * Was this the first time you tasted turrón? - This would allow us to separate groups into naive vs. non-naive participants and evauate whether previous experience had any effect on turrón scoring or on the accuracy of the guess.
-* How many hours ago did you last eat? - This question would allow us to analyse a possible correlation between fasting time and turrón scoring or accuracy of guess. 
+* How many hours ago did you last eat? - This question would allow us to analyse a possible correlation between fasting time and turrón scoring or accuracy of guess.
 
 We also noted the gender of each participant on their questionnaire to analyse any possible gender:scoring or gender:accuracy interactions.
 
-We observed only **minor differences in scoring for visual, texture, sweetness and taste parameters between both turrón varieties despite the price difference**. In general the range of scoring was very similar between both turrón varieties, with very few low or high scores. Female participants tended to score higher for both turrones in visual and texture parameters. 
+We observed only **minor differences in scoring for visual, texture, sweetness and taste parameters between both turrón varieties despite the price difference**. In general the range of scoring was very similar between both turrón varieties, with very few low or high scores. Female participants tended to score higher for both turrones in visual and texture parameters.
 
-Interestingly, **participants that had already tasted turrón before** (i.e. they were non-naive) **had a higher success rate in guessing the expensive turrón**. They also scored turrón_A higher than turrón_B in several parameters. 
+Interestingly, **participants that had already tasted turrón before** (i.e. they were non-naive) **had a higher success rate in guessing the expensive turrón**. They also scored turrón_A higher than turrón_B in several parameters.
 
-All in all, it was a useful experiment to learn the basics of experimental design, data collection, analysis and representation. Our sample size was too small to draw any solid conclusions but our observations suggest that **a random sample of people would not be able to distinguish the expensive from the cheap turrón in a blind tasting**. 
+All in all, it was a useful experiment to learn the basics of experimental design, data collection, analysis and representation. Our sample size was too small to draw any solid conclusions but our observations suggest that **a random sample of people would not be able to distinguish the expensive from the cheap turrón in a blind tasting**.
 
 <!-- So, in conclusion: you do not need to spend the money on an expensive turrón, the cheap one will do just as well...  -->
 
@@ -54,9 +54,9 @@ All in all, it was a useful experiment to learn the basics of experimental desig
 ## Experimental design and procedure
 
 
-The aim of the experiment was to **test whether a large price difference in turrón would manifest in a significant difference in scoring and overall liking in a blind tasting**. 
+The aim of the experiment was to **test whether a large price difference in turrón would manifest in a significant difference in scoring and overall liking in a blind tasting**.
 
-We designed the experiment such that **each participant would taste both turrones**. We predefined a time frame of 1h in which participants would taste. We portioned each turrón into approximately 1cm3 pieces on 2 identical plates and located them in neighboring but separate rooms. We advised participants that they should score both turrones independently (to the extent possible). Participants were naive in what they were going to be asked about. As they arrived, we told them that there were 2 turrón varieties, one cheap, one expensive. We asked them to taste both and then score them  by filling in the questionnaire below. We also asked them to guess which one of the 2 turrones they thought was the expensive one. 
+We designed the experiment such that **each participant would taste both turrones**. We predefined a time frame of 1h in which participants would taste. We portioned each turrón into approximately 1cm3 pieces on 2 identical plates and located them in neighboring but separate rooms. We advised participants that they should score both turrones independently (to the extent possible). Participants were naive in what they were going to be asked about. As they arrived, we told them that there were 2 turrón varieties, one cheap, one expensive. We asked them to taste both and then score them  by filling in the questionnaire below. We also asked them to guess which one of the 2 turrones they thought was the expensive one.
 
 
 * logic for data collection
@@ -79,8 +79,37 @@ We designed the experiment such that **each participant would taste both turrone
 * coherence analysis
 * correlation with fasting
 * [for presentation only?] results of individual guessing accuracy
-
 * Missing data (and how to handle)
+
+### turron A vs turron B
+First we look at the scores that both _turrones_ received accross the different categories.
+Although we find turron A (the expensinve one) was better valued in all but one category (visual), the difference is not very big.
+
+![](results/turron_general.png)
+
+### Gender general effect
+When looking at both _turrones_ at the same time we don't find significant differences between genders.
+But it is worth noting that female seem to be more pleased than males accross all 5 categories. The difference being the biggest in `texture` and `visual`. In these categories male score was bordered (on average) the 5.
+
+![](results/gender_general_effect.png)
+
+
+### Turron by gender
+If we  now look at the gender effect on each of the different _turrones_ we find:
+
+* the patterns we found before appear again when looking at each _turron_ individually
+* both male and female gave higher score to turron A (the expensive)
+
+
+![](results/turron_by_gender.png)
+
+### Turron by first time tasting
+
+![](results/turron_by_first_time_tasting.png)
+
+
+### Coeherence analysis
+
 
 ## Discussion
 
@@ -88,7 +117,7 @@ We designed the experiment such that **each participant would taste both turrone
 * Refer to the yoguhrt experiment
 * Better questions (e.g. the 'sweetness' parameter invalidated because some people scored which one was sweeter and others scored which of the 2 they liked better for sweetness)
 * Why not the tea lady tasting
-  
+
 
 ## Conclusions
 
@@ -98,7 +127,7 @@ We designed the experiment such that **each participant would taste both turrone
 * The sweetness question was too ambiguous
 * Non-naive tasters tended to be better at guessing which was the expensive variant
 * Female participants tended to generally score better for texture and visual
-* Most participants were coherent in their scoring-guessing 
+* Most participants were coherent in their scoring-guessing
 * some people cannot process information on our ballots
 
 

@@ -9,99 +9,88 @@ plt.style.use('tableau-colorblind10')
 sns.set(style="ticks")
 
 # %%
-df = pd.read_csv("data.csv", sep=",", dtype={
-    'name': str,
-    'gender': str,
-    'email': str,
-    'first_time_tasting': str,
-    'hours since last eat': np.float64,
-    'sweetness_A': np.float64,
-    'texture_A': np.float64,
-    'flavour_A': np.float64,
-    'visual_A': np.float64,
-    'overall_A': np.float64,
-    'sweetness_B': np.float64,
-    'texture_B': np.float64,
-    'flavour_B': np.float64,
-    'visual_B': np.float64,
-    'overall_B': np.float64,
-    'guess_expensive': str,
-})
+
+def read_csv_and_preprocess_data(filename):
+    df = pd.read_csv(filename, sep=",", dtype={
+        'name': str,
+        'gender': str,
+        'email': str,
+        'first_time_tasting': str,
+        'hours since last eat': np.float64,
+        'sweetness_A': np.float64,
+        'texture_A': np.float64,
+        'flavour_A': np.float64,
+        'visual_A': np.float64,
+        'overall_A': np.float64,
+        'sweetness_B': np.float64,
+        'texture_B': np.float64,
+        'flavour_B': np.float64,
+        'visual_B': np.float64,
+        'overall_B': np.float64,
+        'guess_expensive': str,
+    })
+    df
+    melted = pd.melt(df, id_vars=['name', 'gender', 'first_time_tasting', 'correct_guess', 'hours since last eat'], value_vars=[
+        # 'hours since last eat',
+        'sweetness_A',
+        'texture_A',
+        'flavour_A',
+        'visual_A',
+        'overall_A',
+        'sweetness_B',
+        'texture_B',
+        'flavour_B',
+        'visual_B',
+        'overall_B',
+    ]).dropna()
+    melted
+    def get_turron_name(row):
+        if "_A" in row['variable']:
+            row['turron'] = 'A'
+        else:
+            row['turron'] = 'B'
+        return row
+    melted = melted.apply(get_turron_name, axis=1)
+    def rename_variables(row):
+        params = ['texture', 'sweetness', 'flavour', 'visual', 'overall']
+        for param in params:
+            if param in row.variable:
+                row.variable = param
+        return row
+    melted = melted.apply(rename_variables, axis=1)
+    melted['composite_variable'] = melted['variable'] + melted['turron']
+    melted
+    return df, melted
+
+df, melted = read_csv_and_preprocess_data("data.csv")
 df
-#%%
-melted = pd.melt(df, id_vars=['name', 'gender', 'first_time_tasting', 'correct_guess', 'hours since last eat'], value_vars=[
-    # 'hours since last eat',
-    'sweetness_A',
-    'texture_A',
-    'flavour_A',
-    'visual_A',
-    'overall_A',
-    'sweetness_B',
-    'texture_B',
-    'flavour_B',
-    'visual_B',
-    'overall_B',
-]).dropna()
-melted
-def get_turron_name(row):
-    if "_A" in row['variable']:
-        row['turron'] = 'A'
-    else:
-        row['turron'] = 'B'
-    return row
-melted = melted.apply(get_turron_name, axis=1)
-def rename_variables(row):
-    params = ['texture', 'sweetness', 'flavour', 'visual', 'overall']
-    for param in params:
-        if param in row.variable:
-            row.variable = param
-    return row
-melted = melted.apply(rename_variables, axis=1)
 melted
 
-
-
-#%%
-
-
-
-# melted['variable'].str.contains("_A")
-# melted.apply(lambda x: 1)
-
-#%%
-# param="texture"
-# mask = (melted['variable'] == param) & (melted['turron'])
-# melted[mask]
-melted['composite_variable'] = melted['variable'] + melted['turron']
-melted
 #%% [markdown]
 # ## Comparing attributes between groups
 #
 #%%
-for param  in ['texture', 'flavour', 'visual', 'sweetness', 'overall']:
-    melted['composite_variable'] = melted['variable'] + melted['turron']
-    param_a = param+"A"
-    param_b = param+"B"
-    mask = melted['composite_variable'].str.contains('|'.join([param_a, param_b]))
-    sns.catplot(x="composite_variable", y="value", hue="gender", kind="point", data=melted[mask])
-
+def gender_by_turron_per_category(melted):
+    for param  in ['texture', 'flavour', 'visual', 'sweetness', 'overall']:
+        melted['composite_variable'] = melted['variable'] + melted['turron']
+        param_a = param+"A"
+        param_b = param+"B"
+        mask = melted['composite_variable'].str.contains('|'.join([param_a, param_b]))
+        sns.catplot(x="composite_variable", y="value", hue="gender", kind="point", data=melted[mask])
+gender_by_turron_per_category(melted)
 ####################################################################################################
 #%% [markdown]
 # ### Gender (t-test)
 #%%
-comparissons = (
-    ('sweetness_A', 'sweetness_B'),
-    ('flavour_A', 'flavour_B'),
-    ('visual_A', 'visual_B'),
-    ('texture_A', 'texture_B'),
-    ('overall_A', 'overall_B'),
-)
+# comparissons = (
+#     ('sweetness_A', 'sweetness_B'),
+#     ('flavour_A', 'flavour_B'),
+#     ('visual_A', 'visual_B'),
+#     ('texture_A', 'texture_B'),
+#     ('overall_A', 'overall_B'),
+# )
 
 for param  in ['texture', 'flavour', 'visual', 'sweetness', 'overall']:
-    # melted['composite_variable'] = melted['variable'] + melted['turron']
-    # param_a = param+"A"
-    # param_b = param+"B"
-    # mask = melted['composite_variable'].str.contains('|'.join([param_a, param_b]))
     females = melted[(melted['variable'] == param) & (melted['gender'] == 'f')]
     males = melted[(melted['variable'] == param) & (melted['gender'] == 'm')]
     statistic, pvalue = stats.ttest_ind(females['value'], males['value'])
@@ -112,17 +101,16 @@ sns.catplot(x="variable", y="value", hue="gender", kind="bar", data=melted)
 
 ####################################################################################################
 #%% [markdown]
-# ### Gender by turron
+# ### Turron by Gender
 #%%
 
+def turron_by_gender(melted):
+    df = melted.copy()
 
-melted['turron:gender'] = melted['turron'] + ':' + melted['gender']
-
-#melted
-
-palette = {'A:f': 'royalblue', 'A:m':'lightsteelblue', 'B:f': 'burlywood', 'B:m': 'bisque'}
-
-sns.catplot(x="variable", y="value", hue="turron:gender", kind="bar", data=melted, palette = palette)
+    df['turron:gender'] = df['turron'] + ':' + df['gender']
+    palette = {'A:f': 'royalblue', 'A:m':'lightsteelblue', 'B:f': 'burlywood', 'B:m': 'bisque'}
+    return sns.catplot(x="variable", y="value", hue="turron:gender", kind="bar", data=df, palette = palette)
+turron_by_gender(melted)
 
 #%% [markdown]
 # ## By Turron
@@ -135,61 +123,66 @@ sns.catplot(x="variable", y="value", hue="correct_guess", kind="bar", data=melte
 
 #%%
 
-def rename_first_time_tasting(row):
-    if row['first_time_tasting'] == 'Y':
-        return 'naive'
-    elif row['first_time_tasting'] == 'N':
-        return 'not naive'
-    else:
-        return Null
+def turron_by_first_time_tasting(melted):
+    def rename_first_time_tasting(row):
+        if row['first_time_tasting'] == 'Y':
+            return 'naive'
+        elif row['first_time_tasting'] == 'N':
+            return 'not naive'
+        else:
+            return None
 
-melted['first_time_tasting'] = melted.apply(rename_first_time_tasting, axis = 1)
+    df = melted.copy()
+    df['first_time_tasting'] = df.apply(rename_first_time_tasting, axis = 1)
+    df['turron:first_time_tasting'] = df['turron'] + ':' + df['first_time_tasting']
+    palette = {
+        'A:not naive': 'royalblue',
+        'A:naive':'lightsteelblue',
+        'B:not naive': 'burlywood',
+        'B:naive': 'bisque'
+    }
 
-melted['turron:first_time_tasting'] = melted['turron'] + ':' + melted['first_time_tasting']
-
-
-#melted
-
-palette = {'A:not naive': 'royalblue', 'A:naive':'lightsteelblue', 'B:not naive': 'burlywood', 'B:naive': 'bisque'}
-
-sns.catplot(x="variable", y="value", hue="turron:first_time_tasting", kind="bar", data=melted, palette = palette)
-
+    return sns.catplot(x="variable", y="value", hue="turron:first_time_tasting", kind="bar", data=df, palette = palette)
+turron_by_first_time_tasting(melted)
 
 #%%
 
-def rename_correct_guess(row):
-    if row['correct_guess'] == 'Y':
-        return 'correct'
-    elif row['correct_guess'] == 'N':
-        return 'incorrect'
-    else:
-        return Null
+def turron_by_correct_guess(melted):
+    def rename_correct_guess(row):
+        if row['correct_guess'] == 'Y':
+            return 'correct'
+        elif row['correct_guess'] == 'N':
+            return 'incorrect'
+        else:
+            return Null
 
-melted['correct_guess'] = melted.apply(rename_correct_guess, axis = 1)
+    df = melted.copy()
+    df['correct_guess'] = df.apply(rename_correct_guess, axis = 1)
+    df['turron:correct_guess'] = df['turron'] + ':' + df['correct_guess']
+    palette = {
+        'A:correct': 'royalblue',
+        'A:incorrect':'lightsteelblue',
+        'B:correct': 'burlywood',
+        'B:incorrect': 'bisque'
+    }
 
-melted['turron:correct_guess'] = melted['turron'] + ':' + melted['correct_guess']
+    return sns.catplot(x="variable", y="value", hue="turron:correct_guess", kind="bar", data=df, palette = palette)
 
+turron_by_correct_guess(melted)
 
-#melted
-
-palette = {'A:correct': 'royalblue', 'A:incorrect':'lightsteelblue', 'B:correct': 'burlywood', 'B:incorrect': 'bisque'}
-
-sns.catplot(x="variable", y="value", hue="turron:correct_guess", kind="bar", data=melted, palette = palette)
-
-
-
-#melted['turron:first_time_tasting']
 #%%
+def success_rate_by_naiveness(df):
+    contingency = pd.crosstab(df.first_time_tasting, df.correct_guess)
+    oddsratio, pvalue = stats.fisher_exact(contingency)
+    print(f"p-value: ", pvalue)
+    non_naive = contingency.loc['N'].sum()
+    naive = contingency.loc['Y'].sum()
+    correct_non_naive = contingency.loc['N', 'Y']
+    correct_naive = contingency.loc['Y', 'Y']
+    sns.barplot(x=['naive','non-naive'], y=[ correct_naive/naive, correct_non_naive/non_naive ])
+    plt.title(f'success rate\nnaive: people that had never before tasted turron\nnon-naive: people who had tasted turron before\np-value: {pvalue}')
 
-contingency = pd.crosstab(df.first_time_tasting, df.correct_guess)
-oddsratio, pvalue = stats.fisher_exact(contingency)
-print(f"p-value: ", pvalue)
-non_naive = contingency.loc['N'].sum()
-naive = contingency.loc['Y'].sum()
-correct_non_naive = contingency.loc['N', 'Y']
-correct_naive = contingency.loc['Y', 'Y']
-sns.barplot(x=['naive','non-naive'], y=[ correct_naive/naive, correct_non_naive/non_naive ])
-plt.title(f'success rate\nnaive: people that had never before tasted turron\nnon-naive: people who had tasted turron before\np-value: {pvalue}')
+success_rate_by_naiveness(df)
 
 #%% [markdown]
 # # Paired 2-way anova statistical analysis

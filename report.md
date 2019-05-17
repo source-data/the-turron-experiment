@@ -10,6 +10,10 @@ The experiment was limited in sample size, so no solid conclusions can be driven
 
 ## Introduction
 
+TODO:
+* infographic with experimental design
+* pictures of turron boxes
+
 Altough EMBO is a scientific organisation, not all staff comes from a scientific background. We did this experiment as part of a **learning exercise to get acquainted with concepts like experimental design, data collection, data analysis and reporting**. We were convinced that forcing ourselves to do as realistic an experiment as possible would give us the biggest learning outcome.
 
 Since we had 2 turrón varieties of the same kind but of very different prices at hand, we reasoned that it would be a 'fun' experiment to **have EMBO staff try to differentiate those 2 varieties from each other simply by a series of parameters, including taste, texture, and visual appearance**.
@@ -58,6 +62,7 @@ The aim of the experiment was to **test whether a large price difference in turr
 
 We designed the experiment such that **each participant would taste both turrones**. We predefined a time frame of 1h in which participants would taste. We portioned each turrón into approximately 1cm3 pieces on 2 identical plates and located them in neighboring but separate rooms. We advised participants that they should score both turrones independently (to the extent possible). Participants were naive in what they were going to be asked about. As they arrived, we told them that there were 2 turrón varieties, one cheap, one expensive. We asked them to taste both and then score them  by filling in the questionnaire below. We also asked them to guess which one of the 2 turrones they thought was the expensive one.
 
+We noticed that the question about sweetness was ambiguous. Some participants scored how much they liked the sweetness of the turron, while others scored how sweet it tasted. Since the aim of the question was not unanimous we decided to exclude sweetness from the analysis.
 
 * logic for data collection
 * questions
@@ -66,6 +71,7 @@ We designed the experiment such that **each participant would taste both turrone
 
 * Describe each of the analyses performed and the choice of test for each
 * Table with final n number (after NA removal) for each analysis
+* Missing data (and how to handle)
 
 ###  Data collection
 
@@ -79,36 +85,63 @@ We designed the experiment such that **each participant would taste both turrone
 * coherence analysis
 * correlation with fasting
 * [for presentation only?] results of individual guessing accuracy
-* Missing data (and how to handle)
 
-### turron A vs turron B
+### turron_A vs turron_B
 First we look at the scores that both _turrones_ received accross the different categories.
-Although we find turron A (the expensinve one) was better valued in all but one category (visual), the difference is not very big.
+Although turron_A (the expensinve one) was consistently scored higher (except in _visual_) the difference is neglectable.
 
 ![](results/turron_general.png)
 
 ### Gender general effect
-When looking at both _turrones_ at the same time we don't find significant differences between genders.
-But it is worth noting that female seem to be more pleased than males accross all 5 categories. The difference being the biggest in `texture` and `visual`. In these categories male score was bordered (on average) the 5.
+When looking at both _turrones_ at the same time we don't find significant differences between genders, with the exception of texture and visual. Females tend to give a higher score.
 
 ![](results/gender_general_effect.png)
 
 
 ### Turron by gender
-If we  now look at the gender effect on each of the different _turrones_ we find:
+If we now look at the gender effect on each of the different _turrones_ we find:
 
 * the patterns we found before appear again when looking at each _turron_ individually
-* both male and female gave higher score to turron A (the expensive)
+* both male and female gave higher score to turron_A
 
 
 ![](results/turron_by_gender.png)
 
-### Turron by first time tasting
+### Guess rate analysis
+TODO:
+* grafica donde se vea el overall guess rate ~ 50-50
+
+Data indicates participants couldn't correctly guess which turron was the expensive one.
+
+
+### Influence of previous tasting experience on scoring
+TODO:
+* sankey chart with the following steps:
+    - all participants
+    - split by naive
+    - split by succesful rate
+    - split by gender (probably irrelevant?)
+
+* extra snakey for presentation: last branch the individual names of participants
 
 ![](results/turron_by_first_time_tasting.png)
 
 
-### Coeherence analysis
+### Coherence analysis
+
+Based on the premise that we expected expensive turron to be rated higher, we define coherence as giving a higher score to the turron you think is the expensive one. We aware that this must not always be the case, but we worked with definition.
+
+By this definition we find that:
+
+* 70% of participants gave a higher score to the turron they though was the most expensive one.
+* 10% rated both turrons with the same overall score
+* and 20%
+
+![](results/coherence_analysis.png)
+
+### Influence of fasting
+
+![](results/fasting.png)
 
 
 ## Discussion
@@ -117,6 +150,8 @@ If we  now look at the gender effect on each of the different _turrones_ we find
 * Refer to the yoguhrt experiment
 * Better questions (e.g. the 'sweetness' parameter invalidated because some people scored which one was sweeter and others scored which of the 2 they liked better for sweetness)
 * Why not the tea lady tasting
+
+In these categories male score was bordered (on average) the 5.
 
 
 ## Conclusions

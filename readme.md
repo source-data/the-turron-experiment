@@ -48,3 +48,7 @@ The advantage of this system is that it allows you to control which python versi
     - Eva:
         - [] Intro
         - [] Experimental design
+- [] make better use of color to help differentiatie turron (a vs b) and gender (male vs female)
+- [] delete excel fil and keep just csv
+- [] remove sweetness from all analysis and graphs
+- [] ask annika about cake&learn

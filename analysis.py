@@ -7,7 +7,12 @@ import scipy.stats as stats
 import matplotlib.pyplot as plt
 plt.style.use('tableau-colorblind10')
 sns.set(style="ticks")
-
+PALETTE = {
+    'A': 'darkturquoise',
+    'B': 'y',
+    'male': 'dodgerblue',
+    'female': 'tomato',
+}
 # %%
 
 def read_csv_and_preprocess_data(filename):
@@ -145,9 +150,9 @@ def turron_by_first_time_tasting(melted):
     return sns.catplot(x="variable", y="value", hue="turron:first_time_tasting", kind="bar", data=df, palette = palette)
 turron_by_first_time_tasting(melted)
 
-#%%
 
-def turron_by_correct_guess(melted):
+#%%
+def turron_by_correct_guess2(melted):
     def rename_correct_guess(row):
         if row['correct_guess'] == 'Y':
             return 'correct'
@@ -158,18 +163,19 @@ def turron_by_correct_guess(melted):
 
     df = melted.copy()
     df['correct_guess'] = df.apply(rename_correct_guess, axis = 1)
-    df['turron:correct_guess'] = df['turron'] + ':' + df['correct_guess']
-    palette = {
-        'A:correct': 'royalblue',
-        'A:incorrect':'lightsteelblue',
-        'B:correct': 'burlywood',
-        'B:incorrect': 'bisque'
-    }
+    g = sns.FacetGrid(df, col="variable", size=4, aspect=0.45)
+    g.map(sns.barplot, "correct_guess", "value", "turron", palette=PALETTE, errwidth="2")
+    g.add_legend(title="turron")
 
-    return sns.catplot(x="variable", y="value", hue="turron:correct_guess", kind="bar", data=df, palette = palette)
+    g.axes[0,0].set_ylabel('mean score')
+    g.axes[0,0].xaxis.label.set_visible(False)
+    g.axes[0,1].xaxis.label.set_visible(False)
+    g.axes[0,2].set_xlabel('Guessed which turron was expensive')
+    g.axes[0,3].xaxis.label.set_visible(False)
+    g.axes[0,4].xaxis.label.set_visible(False)
 
-turron_by_correct_guess(melted)
-
+    return g
+turron_by_correct_guess2(melted)
 #%%
 def success_rate_by_naiveness(df):
     contingency = pd.crosstab(df.first_time_tasting, df.correct_guess)

@@ -121,11 +121,9 @@ P Value gender: female;	overall_A vs overall_B	= 0.8990 / delta mean 0.0714
 ```
 
 ### Guess rate analysis
-TODO:
-* grafica donde se vea el overall guess rate ~ 50-50
 
 Data indicates participants couldn't correctly guess which turron was the expensive one.
-
+![](results/guess_rate.png)
 
 ### Influence of previous tasting experience on scoring
 If we divide our sample in between:

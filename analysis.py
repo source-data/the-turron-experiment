@@ -486,3 +486,11 @@ print("http://sankeymatic.com/build/\n")
 
 print(format_for_sankeymatic(sankey_data))
 
+
+#%%
+def guess_rate(df):
+    fig, ax = plt.subplots()
+    sns.countplot(x='correct_guess', data=df)
+    return fig, ax
+fig, ax = guess_rate(df)
+fig.savefig("results/guess_rate.png", facecolor=fig.get_facecolor(), bbox_inches='tight')

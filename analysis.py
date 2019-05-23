@@ -142,10 +142,9 @@ def turron_by_gender2(melted):
 
     g.axes[0,0].set_ylabel('mean score')
     g.axes[0,0].xaxis.label.set_visible(False)
-    g.axes[0,1].xaxis.label.set_visible(False)
-    g.axes[0,2].set_xlabel('Gender')
+    g.axes[0,1].set_xlabel('Gender')
+    g.axes[0,2].xaxis.label.set_visible(False)
     g.axes[0,3].xaxis.label.set_visible(False)
-    g.axes[0,4].xaxis.label.set_visible(False)
     # set figure title
     plt.subplots_adjust(top=0.85)
     g.fig.suptitle('turron:gender')
@@ -156,7 +155,7 @@ g.savefig("results/turron_by_gender.png", facecolor=g.fig.get_facecolor())
 #%% [markdown]
 # ## By Turron
 #%%
-sns.catplot(x="variable", y="value", hue="turron", kind="bar", data=melted)
+sns.catplot(x="variable", y="value", hue="turron", kind="bar", data=melted, palette=PALETTE)
 
 #%%
 sns.catplot(x="variable", y="value", hue="first_time_tasting", kind="bar", data=melted)
@@ -204,10 +203,9 @@ def turron_by_first_time_tasting2(melted):
 
     g.axes[0,0].set_ylabel('mean score')
     g.axes[0,0].xaxis.label.set_visible(False)
-    g.axes[0,1].xaxis.label.set_visible(False)
-    g.axes[0,2].set_xlabel('Was is the first time to taste turron?')
+    g.axes[0,1].set_xlabel('Was is the first time to taste turron?')
+    g.axes[0,2].xaxis.label.set_visible(False)
     g.axes[0,3].xaxis.label.set_visible(False)
-    g.axes[0,4].xaxis.label.set_visible(False)
     # set figure title
     plt.subplots_adjust(top=0.85)
     g.fig.suptitle('turron:first_time_tasting')
@@ -235,10 +233,9 @@ def turron_by_correct_guess2(melted):
 
     g.axes[0,0].set_ylabel('mean score')
     g.axes[0,0].xaxis.label.set_visible(False)
-    g.axes[0,1].xaxis.label.set_visible(False)
-    g.axes[0,2].set_xlabel('Guessed which turron was expensive')
+    g.axes[0,1].set_xlabel('Guessed which turron was expensive')
+    g.axes[0,2].xaxis.label.set_visible(False)
     g.axes[0,3].xaxis.label.set_visible(False)
-    g.axes[0,4].xaxis.label.set_visible(False)
     # set figure title
     plt.subplots_adjust(top=0.85)
     g.fig.suptitle('turron:correct_guess')
@@ -272,14 +269,14 @@ success_rate_by_naiveness(df)
 # ### Turron A vs B (paired t-test)
 #%%
 comparissons = (
-    ('sweetness_A', 'sweetness_B'),
+    # ('sweetness_A', 'sweetness_B'),
     ('flavour_A', 'flavour_B'),
     ('visual_A', 'visual_B'),
     ('texture_A', 'texture_B'),
     ('overall_A', 'overall_B'),
 )
 
-for param  in ['texture', 'flavour', 'visual', 'sweetness', 'overall']:
+for param  in ['texture', 'flavour', 'visual', 'overall']:
     melted['composite_variable'] = melted['variable'] + melted['turron']
     param_a = param+"A"
     param_b = param+"B"
@@ -300,7 +297,7 @@ for (cat_A, cat_B) in comparissons:
 # ### Turron A vs B by Gender (paired t-test)
 #%%
 comparissons = (
-    ('sweetness_A', 'sweetness_B'),
+    # ('sweetness_A', 'sweetness_B'),
     ('flavour_A', 'flavour_B'),
     ('visual_A', 'visual_B'),
     ('texture_A', 'texture_B'),
@@ -315,19 +312,19 @@ comparissons = (
 #     sns.catplot(x="composite_variable", y="value", hue="name", kind="point", data=melted[mask])
 
 for (cat_A, cat_B) in comparissons:
-    for gender in ('m', 'f',):
+    for gender in ('male', 'female',):
         df_cat = df[[cat_A, cat_B, 'gender']].dropna()
         df_cat['delta'] = df_cat[cat_A] - df_cat[cat_B]
         df_cat = df_cat[df_cat['gender'] == gender]
 
         statistic, pvalue = stats.ttest_rel(df_cat[cat_A], df_cat[cat_B])
-        print(f"P Value gender: {gender}; {cat_A} vs {cat_B} = {pvalue} / delta mean {df_cat['delta'].mean()}")
+        print(f"P Value gender: {gender};\t{cat_A} vs {cat_B}\t= {pvalue:1.4f} / delta mean {df_cat['delta'].mean():1.4f}")
 
 #%% [markdown]
 # ### Effect of number of hours without eating
 #%%
 melted_hours = melted[['variable', 'turron', 'hours since last eat', 'value']].dropna()
-melted_hours = melted_hours[melted_hours['variable'] == 'sweetness']
+# melted_hours = melted_hours[melted_hours['variable'] == 'sweetness']
 sns.swarmplot(x='hours since last eat', y='value', hue='turron', data=melted_hours)
 
 #%% [markdown]

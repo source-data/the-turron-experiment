@@ -258,11 +258,22 @@ def success_rate_by_naiveness(df):
     naive = contingency.loc['Y'].sum()
     correct_non_naive = contingency.loc['N', 'Y']
     correct_naive = contingency.loc['Y', 'Y']
-    sns.barplot(x=['naive','non-naive'], y=[ correct_naive/naive, correct_non_naive/non_naive ])
-    plt.title(f'success rate\nnaive: people that had never before tasted turron\nnon-naive: people who had tasted turron before\np-value: {pvalue}')
+    fig, ax = plt.subplots()
+    sns.barplot(
+        x=['naive','non-naive'],
+        y=[ correct_naive/naive, correct_non_naive/non_naive ],
+        palette={
+            'naive': 'slategrey',
+            'non-naive': 'slategrey',
+        },
+    )
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    plt.title(f'Success Rate\np: {pvalue:1.3f}')
+    return fig, ax
 
-success_rate_by_naiveness(df)
-
+fig, ax = success_rate_by_naiveness(df)
+fig.savefig("results/success_rate_by_naiveness.png", facecolor=fig.get_facecolor())
 #%% [markdown]
 # # Paired 2-way anova statistical analysis
 # https://raphaelvallat.com/pingouin.html

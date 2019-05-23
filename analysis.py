@@ -397,7 +397,6 @@ def preference_coherence(df):
             f"Not Coherent ({coherence_count['coherence'][1]})",
             f"Tie ({coherence_count['coherence'][2]})",
         ],
-        loc='top',
         bbox_to_anchor=(1, 1),
         frameon=False,
     )

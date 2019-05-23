@@ -82,7 +82,8 @@ def gender_by_turron_per_category(melted):
         param_b = param+"B"
         mask = melted['composite_variable'].str.contains('|'.join([param_a, param_b]))
         sns.catplot(x="composite_variable", y="value", hue="gender", kind="point", data=melted[mask])
-gender_by_turron_per_category(melted)
+# gender_by_turron_per_category(melted)
+
 ####################################################################################################
 #%% [markdown]
 # ### Gender (t-test)
@@ -173,9 +174,13 @@ def turron_by_correct_guess2(melted):
     g.axes[0,2].set_xlabel('Guessed which turron was expensive')
     g.axes[0,3].xaxis.label.set_visible(False)
     g.axes[0,4].xaxis.label.set_visible(False)
+    # set figure title
+    plt.subplots_adjust(top=0.85)
+    g.fig.suptitle('turron:correct_guess')
 
     return g
-turron_by_correct_guess2(melted)
+g = turron_by_correct_guess2(melted)
+g.savefig("results/turron_by_correct_guess.png", facecolor=g.fig.get_facecolor())
 #%%
 def success_rate_by_naiveness(df):
     contingency = pd.crosstab(df.first_time_tasting, df.correct_guess)

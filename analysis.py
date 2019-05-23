@@ -359,34 +359,57 @@ fig.savefig("results/influence_of_fasting.png", facecolor=fig.get_facecolor())
 # ### Analysing preference coherence
 #%%
 
-def calculate_preference(row):
-    if row.overall_A > row.overall_B:
-        return 'A'
-    elif row.overall_A < row.overall_B:
-        return 'B'
-    else:
-        return 'tie'
-df['preference'] = df.apply(calculate_preference, axis=1)
-def calculate_coherence(row):
-    if row.preference == 'tie':
-        return 'Tie'
-    elif row.preference == row.guess_expensive:
-        return 'Coherent'
-    else:
-        return 'Not Coherent'
-df['coherence'] = df.apply(calculate_coherence, axis=1)
-coherence_df = df[['overall_A', 'overall_B', 'preference', 'guess_expensive', 'coherence']].dropna()
-coherence_df
+def preference_coherence(df):
+    df = df.copy()
+    def calculate_preference(row):
+        if row.overall_A > row.overall_B:
+            return 'A'
+        elif row.overall_A < row.overall_B:
+            return 'B'
+        else:
+            return 'tie'
+    df['preference'] = df.apply(calculate_preference, axis=1)
+    def calculate_coherence(row):
+        if row.preference == 'tie':
+            return 'Tie'
+        elif row.preference == row.guess_expensive:
+            return 'Coherent'
+        else:
+            return 'Not Coherent'
+    df['coherence'] = df.apply(calculate_coherence, axis=1)
+    coherence_df = df[['overall_A', 'overall_B', 'preference', 'guess_expensive', 'coherence']].dropna()
+    coherence_df
 
-coherence_count = coherence_df.groupby('coherence').agg({'coherence': 'count'})
-total = coherence_count.sum()
-coherence_count['%'] = coherence_count / total
-coherence_count
+    coherence_count = coherence_df.groupby('coherence').agg({'coherence': 'count'})
+    total = coherence_count.sum()
+    coherence_count['%'] = coherence_count / total
+    print(coherence_count)
 
+    plt.bar(0                              , 1, width=coherence_count['%'][0], align='edge', color='mediumseagreen', label='Coherent')
+    plt.bar(coherence_count['%'][0]        , 1, width=coherence_count['%'][1], align='edge', color='darksalmon'       , label='Not Coherent')
+    plt.bar(coherence_count['%'][0:2].sum(), 1, width=coherence_count['%'][2], align='edge', color='lightgray'    , label='Tie')
 
-plt.bar(0, coherence_count['%'][0], width=0.1, color='lightsalmon', label='Coherent')
-plt.bar(0, coherence_count['%'][1], width=0.1, bottom=coherence_count['%'][0], color='teal', label='Not Coherent')
-plt.bar(0, coherence_count['%'][2], width=0.1, bottom=coherence_count['%'][0:2].sum(), color='skyblue', label='Tie')
-fig=plt.figure(1)
+    fig=plt.figure(1)
+    plt.title(f'Preference coherence')
+    ax = fig.gca()
+    ax.legend([
+            f"Coherent ({coherence_count['coherence'][0]})",
+            f"Not Coherent ({coherence_count['coherence'][1]})",
+            f"Tie ({coherence_count['coherence'][2]})",
+        ],
+        loc='top',
+        bbox_to_anchor=(1, 1),
+        frameon=False,
+    )
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    ax.spines['left'].set_visible(False)
+    ax.spines['bottom'].set_visible(False)
+    ax.get_yaxis().set_visible(False)
+    ax.xaxis.set_ticks([0, 0.75, 0.9, 1])
+    ax.tick_params(length=0)
 
-fig.set_size_inches(1, 10, forward=True)
+    fig.set_size_inches(10, 2, forward=True)
+    return fig, ax
+fig, ax = preference_coherence(df)
+fig.savefig("results/preference_coherence.png", facecolor=fig.get_facecolor(), bbox_inches='tight')

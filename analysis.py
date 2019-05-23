@@ -129,7 +129,30 @@ sns.catplot(x="variable", y="value", hue="correct_guess", kind="bar", data=melte
 
 #%%
 
-def turron_by_first_time_tasting(melted):
+# def turron_by_first_time_tasting(melted):
+#     def rename_first_time_tasting(row):
+#         if row['first_time_tasting'] == 'Y':
+#             return 'naive'
+#         elif row['first_time_tasting'] == 'N':
+#             return 'not naive'
+#         else:
+#             return None
+
+#     df = melted.copy()
+#     df['first_time_tasting'] = df.apply(rename_first_time_tasting, axis = 1)
+#     df['turron:first_time_tasting'] = df['turron'] + ':' + df['first_time_tasting']
+#     palette = {
+#         'A:not naive': 'royalblue',
+#         'A:naive':'lightsteelblue',
+#         'B:not naive': 'burlywood',
+#         'B:naive': 'bisque'
+#     }
+
+#     return sns.catplot(x="variable", y="value", hue="turron:first_time_tasting", kind="bar", data=df, palette = palette)
+# turron_by_first_time_tasting(melted)
+
+#%%
+def turron_by_first_time_tasting2(melted):
     def rename_first_time_tasting(row):
         if row['first_time_tasting'] == 'Y':
             return 'naive'
@@ -140,16 +163,23 @@ def turron_by_first_time_tasting(melted):
 
     df = melted.copy()
     df['first_time_tasting'] = df.apply(rename_first_time_tasting, axis = 1)
-    df['turron:first_time_tasting'] = df['turron'] + ':' + df['first_time_tasting']
-    palette = {
-        'A:not naive': 'royalblue',
-        'A:naive':'lightsteelblue',
-        'B:not naive': 'burlywood',
-        'B:naive': 'bisque'
-    }
+    g = sns.FacetGrid(df, col="variable", size=5, aspect=0.4)
+    g.map(sns.barplot, "first_time_tasting", "value", "turron", palette=PALETTE, errwidth="2")
+    g.add_legend(title="turron")
 
-    return sns.catplot(x="variable", y="value", hue="turron:first_time_tasting", kind="bar", data=df, palette = palette)
-turron_by_first_time_tasting(melted)
+    g.axes[0,0].set_ylabel('mean score')
+    g.axes[0,0].xaxis.label.set_visible(False)
+    g.axes[0,1].xaxis.label.set_visible(False)
+    g.axes[0,2].set_xlabel('Was is the first time to taste turron?')
+    g.axes[0,3].xaxis.label.set_visible(False)
+    g.axes[0,4].xaxis.label.set_visible(False)
+    # set figure title
+    plt.subplots_adjust(top=0.85)
+    g.fig.suptitle('turron:first_time_tasting')
+
+    return g
+g = turron_by_first_time_tasting2(melted)
+g.savefig("results/turron_by_first_time_tasting.png", facecolor=g.fig.get_facecolor())
 
 
 #%%
@@ -164,7 +194,7 @@ def turron_by_correct_guess2(melted):
 
     df = melted.copy()
     df['correct_guess'] = df.apply(rename_correct_guess, axis = 1)
-    g = sns.FacetGrid(df, col="variable", size=4, aspect=0.45)
+    g = sns.FacetGrid(df, col="variable", size=5, aspect=0.4)
     g.map(sns.barplot, "correct_guess", "value", "turron", palette=PALETTE, errwidth="2")
     g.add_legend(title="turron")
 

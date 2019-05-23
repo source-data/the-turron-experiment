@@ -39,8 +39,8 @@ The advantage of this system is that it allows you to control which python versi
 - [x] analyse gender by turron interaction
 - [x] structure report
 - cleanup
-    - [ ] one melted to rule them all
-    - [ ] group analysis by theme
+    - [x] one melted to rule them all
+    - [x] group analysis by theme
 - writting report
     - Alex:
         - [ ] results
@@ -50,5 +50,5 @@ The advantage of this system is that it allows you to control which python versi
         - [ ] Experimental design
 - [ ] make better use of color to help differentiatie turron (a vs b) and gender (male vs female)
 - [ ] delete excel fil and keep just csv
-- [ ] remove sweetness from all analysis and graphs
-- [ ] ask annika about cake&learn
+- [x] remove sweetness from all analysis and graphs
+- [x] ask annika about cake&learn

@@ -412,3 +412,84 @@ def preference_coherence(df):
     return fig, ax
 fig, ax = preference_coherence(df)
 fig.savefig("results/preference_coherence.png", facecolor=fig.get_facecolor(), bbox_inches='tight')
+
+#%%
+
+def influence_of_naiveness_on_score(df, with_individuals=True):
+    total_participants = len(df)
+
+    naive = df[df['first_time_tasting'] == 'Y']
+    not_naive = df[df['first_time_tasting'] == 'N']
+    unknown = df[df['first_time_tasting'].isnull()]
+
+    naive_right_guess = naive[naive['correct_guess'] == 'Y']
+    naive_wrong_guess = naive[naive['correct_guess'] == 'N']
+    not_naive_right_guess = not_naive[not_naive['correct_guess'] == 'Y']
+    not_naive_wrong_guess = not_naive[not_naive['correct_guess'] == 'N']
+    unknown_right_guess = unknown[unknown['correct_guess'] == 'Y']
+    unknown_wrong_guess = unknown[unknown['correct_guess'] == 'N']
+
+    print(f"total participants: {total_participants}")
+    print(f"\tnaive: {len(naive)}")
+    print(f"\t\tguessed correctly: {len(naive_right_guess)}")
+    print(f"\t\t\t {', '.join(naive_right_guess['name'])}")
+    print(f"\t\tguessed wrong: {len(naive_wrong_guess)}")
+    print(f"\t\t\t {', '.join(naive_wrong_guess['name'])}")
+
+    print(f"\tnot naive: {len(not_naive)}")
+    print(f"\t\tguessed correctly: {len(not_naive_right_guess)}")
+    print(f"\t\t\t {', '.join(not_naive_right_guess['name'])}")
+    print(f"\t\tguessed wrong: {len(not_naive_wrong_guess)}")
+    print(f"\t\t\t {', '.join(not_naive_wrong_guess['name'])}")
+
+    print(f"\tunkown: {len(unknown)}")
+    print(f"\t\tguessed correctly: {len(unknown_right_guess)}")
+    print(f"\t\tguessed wrong: {len(unknown_wrong_guess)}")
+    print(f"\t\t\t {', '.join(unknown_wrong_guess['name'])}")
+
+
+    sankey_data = []
+    sankey_data.append(('total', len(naive), 'naive'))
+    sankey_data.append(('total', len(not_naive), 'not_naive'))
+    sankey_data.append(('total', len(unknown), 'unknown'))
+
+    sankey_data.append(('naive', len(naive_right_guess), 'guessed correctly (Naive)'))
+    sankey_data.append(('naive', len(naive_wrong_guess), 'guessed wrong (Naive)'))
+
+    sankey_data.append(('not_naive', len(not_naive_right_guess), 'guessed correctly (Not Naive)'))
+    sankey_data.append(('not_naive', len(not_naive_wrong_guess), 'guessed wrong (Not Naive)'))
+
+    sankey_data.append(('unknown', len(unknown_right_guess), 'guessed correctly (ukn)'))
+    sankey_data.append(('unknown', len(unknown_wrong_guess), 'guessed wrong (ukn)'))
+
+    if (with_individuals):
+        for _, row in naive_right_guess.iterrows():
+            sankey_data.append(('guessed correctly (Naive)', 1, row['name']))
+        for _, row in naive_wrong_guess.iterrows():
+            sankey_data.append(('guessed wrong (Naive)', 1, row['name']))
+        for _, row in not_naive_right_guess.iterrows():
+            sankey_data.append(('guessed correctly (Not Naive)', 1, row['name']))
+        for _, row in not_naive_wrong_guess.iterrows():
+            sankey_data.append(('guessed wrong (Not Naive)', 1, row['name']))
+        for _, row in unknown_right_guess.iterrows():
+            sankey_data.append(('guessed correctly (ukn)', 1, row['name']))
+        for _, row in unknown_wrong_guess.iterrows():
+            sankey_data.append(('guessed wrong (ukn)', 1, row['name']))
+
+    return sankey_data
+
+def format_for_sankeymatic(data):
+    """
+    Formats sankey data to be directly pasted on
+    http://sankeymatic.com/build/
+    """
+    format_row = lambda row: f"{row[0]} [{row[1]}] {row[2]}"
+    return '\n'.join(list(map(format_row, data)))
+
+sankey_data = influence_of_naiveness_on_score(df, with_individuals=True)
+print("\n#######################################################")
+print("\n\nTo generate a sankey chart: copy the following in")
+print("http://sankeymatic.com/build/\n")
+
+print(format_for_sankeymatic(sankey_data))
+

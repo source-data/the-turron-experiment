@@ -115,16 +115,19 @@ Data indicates participants couldn't correctly guess which turron was the expens
 
 
 ### Influence of previous tasting experience on scoring
-TODO:
-* sankey chart with the following steps:
-    - all participants
-    - split by naive
-    - split by succesful rate
-    - split by gender (probably irrelevant?)
+If we divide our sample in between:
 
-* extra snakey for presentation: last branch the individual names of participants
+* naive: those who were tasting turron for the very first time in their lives
+* not naive: and those who had tasted turron in the past
+
+we can see that the not-naive group was systematically rated better the more expensive turron (A) accross all categories
 
 ![](results/turron_by_first_time_tasting.png)
+
+We also observe that they proved to be better at guessing which turron was the epensive one, 64% of them guessed correctly. In contrast, in the naive group, only 30% was guessed correctly.
+
+![](results/influence_of_naiveness_on_score.png)
+![](results/influence_of_naiveness_on_score_x.png)
 
 
 ### Coherence analysis
@@ -133,15 +136,15 @@ Based on the premise that we expected expensive turron to be rated higher, we de
 
 By this definition we find that:
 
-* 70% of participants gave a higher score to the turron they though was the most expensive one.
+* 75% of participants gave a higher score to the turron they though was the most expensive one
 * 10% rated both turrons with the same overall score
-* and 20%
+* and 15% rated better the turron they though to be the cheap one
 
-![](results/coherence_analysis.png)
+![](results/preference_coherence.png)
 
 ### Influence of fasting
 
-![](results/fasting.png)
+![](results/influence_of_fasting.png)
 
 
 ## Discussion

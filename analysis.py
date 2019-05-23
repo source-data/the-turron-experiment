@@ -151,6 +151,27 @@ def turron_by_gender2(melted):
     return g
 g = turron_by_gender2(melted)
 g.savefig("results/turron_by_gender.png", facecolor=g.fig.get_facecolor())
+
+#%% [markdown]
+# ### Turron A vs B by Gender (paired t-test)
+#%%
+comparissons = (
+    ('flavour_A', 'flavour_B'),
+    ('visual_A', 'visual_B'),
+    ('texture_A', 'texture_B'),
+    ('overall_A', 'overall_B'),
+)
+
+for (cat_A, cat_B) in comparissons:
+    for gender in ('male', 'female',):
+        df_cat = df[[cat_A, cat_B, 'gender']].dropna()
+        df_cat['delta'] = df_cat[cat_A] - df_cat[cat_B]
+        df_cat = df_cat[df_cat['gender'] == gender]
+
+        statistic, pvalue = stats.ttest_rel(df_cat[cat_A], df_cat[cat_B])
+        print(f"P Value gender: {gender};\t{cat_A} vs {cat_B}\t= {pvalue:1.4f} / delta mean {df_cat['delta'].mean():1.4f}")
+
+
 #%% [markdown]
 # ## By Turron
 #%%
@@ -308,34 +329,6 @@ for (cat_A, cat_B) in comparissons:
     print(f"P Value {cat_A} vs {cat_B} = {pvalue} / delta mean {df_cat['delta'].mean()}")
 
 
-
-####################################################################################################
-#%% [markdown]
-# ### Turron A vs B by Gender (paired t-test)
-#%%
-comparissons = (
-    # ('sweetness_A', 'sweetness_B'),
-    ('flavour_A', 'flavour_B'),
-    ('visual_A', 'visual_B'),
-    ('texture_A', 'texture_B'),
-    ('overall_A', 'overall_B'),
-)
-
-# for param  in ['texture', 'flavour', 'visual', 'sweetness', 'overall']:
-#     melted['composite_variable'] = melted['variable'] + melted['turron']
-#     param_a = param+"A"
-#     param_b = param+"B"
-#     mask = melted['composite_variable'].str.contains('|'.join([param_a, param_b]))
-#     sns.catplot(x="composite_variable", y="value", hue="name", kind="point", data=melted[mask])
-
-for (cat_A, cat_B) in comparissons:
-    for gender in ('male', 'female',):
-        df_cat = df[[cat_A, cat_B, 'gender']].dropna()
-        df_cat['delta'] = df_cat[cat_A] - df_cat[cat_B]
-        df_cat = df_cat[df_cat['gender'] == gender]
-
-        statistic, pvalue = stats.ttest_rel(df_cat[cat_A], df_cat[cat_B])
-        print(f"P Value gender: {gender};\t{cat_A} vs {cat_B}\t= {pvalue:1.4f} / delta mean {df_cat['delta'].mean():1.4f}")
 
 #%% [markdown]
 # ### Effect of number of hours without eating

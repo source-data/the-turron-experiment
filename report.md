@@ -107,6 +107,19 @@ If we now look at the gender effect on each of the different _turrones_ we find:
 
 ![](results/turron_by_gender.png)
 
+Additionally we calculated the following p-values by using a paired t-test:
+
+```
+P Value gender: male;	flavour_A vs flavour_B	= 0.9266 / delta mean 0.1667
+P Value gender: female;	flavour_A vs flavour_B	= 0.3556 / delta mean 0.5294
+P Value gender: male;	visual_A  vs visual_B	= 0.8831 / delta mean 0.1667
+P Value gender: female;	visual_A  vs visual_B	= 0.9144 / delta mean -0.0588
+P Value gender: male;	texture_A vs texture_B	= 0.6952 / delta mean 0.6667
+P Value gender: female;	texture_A vs texture_B	= 0.4293 / delta mean 0.4118
+P Value gender: male;	overall_A vs overall_B	= 0.7827 / delta mean 0.3333
+P Value gender: female;	overall_A vs overall_B	= 0.8990 / delta mean 0.0714
+```
+
 ### Guess rate analysis
 TODO:
 * grafica donde se vea el overall guess rate ~ 50-50

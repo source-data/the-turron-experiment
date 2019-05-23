@@ -8,8 +8,8 @@ import matplotlib.pyplot as plt
 plt.style.use('tableau-colorblind10')
 sns.set(style="ticks")
 PALETTE = {
-    'A': 'darkturquoise',
-    'B': 'y',
+    'A (expensive)': 'darkturquoise',
+    'B (cheap)': 'y',
     'male': 'dodgerblue',
     'female': 'tomato',
 }
@@ -34,7 +34,14 @@ def read_csv_and_preprocess_data(filename):
         'overall_B': np.float64,
         'guess_expensive': str,
     })
-    df
+    def rename_gender(row):
+        if row['gender'] == 'f':
+            return 'female'
+        elif row['gender'] == 'm':
+            return 'male'
+        else:
+            return None
+    df['gender'] = df.apply(rename_gender, axis = 1)
     melted = pd.melt(df, id_vars=['name', 'gender', 'first_time_tasting', 'correct_guess', 'hours since last eat'], value_vars=[
         # 'hours since last eat',
         'sweetness_A',
@@ -51,9 +58,9 @@ def read_csv_and_preprocess_data(filename):
     melted
     def get_turron_name(row):
         if "_A" in row['variable']:
-            row['turron'] = 'A'
+            row['turron'] = 'A (expensive)'
         else:
-            row['turron'] = 'B'
+            row['turron'] = 'B (cheap)'
         return row
     melted = melted.apply(get_turron_name, axis=1)
     def rename_variables(row):
@@ -119,17 +126,7 @@ sns.catplot(x="variable", y="value", hue="gender", kind="bar", data=melted)
 # turron_by_gender(melted)
 #%%
 def turron_by_gender2(melted):
-    def rename_gender(row):
-        if row['gender'] == 'f':
-            return 'female'
-        elif row['gender'] == 'm':
-            return 'male'
-        else:
-            return None
-
-    df = melted.copy()
-    df['gender'] = df.apply(rename_gender, axis = 1)
-    g = sns.FacetGrid(df, col="variable", size=5, aspect=0.4)
+    g = sns.FacetGrid(melted, col="variable", height=5, aspect=0.4)
     g.map(sns.barplot, "gender", "value", "turron", palette=PALETTE, errwidth="2")
     g.add_legend(title="turron")
 
@@ -191,7 +188,7 @@ def turron_by_first_time_tasting2(melted):
 
     df = melted.copy()
     df['first_time_tasting'] = df.apply(rename_first_time_tasting, axis = 1)
-    g = sns.FacetGrid(df, col="variable", size=5, aspect=0.4)
+    g = sns.FacetGrid(df, col="variable", height=5, aspect=0.4)
     g.map(sns.barplot, "first_time_tasting", "value", "turron", palette=PALETTE, errwidth="2")
     g.add_legend(title="turron")
 
@@ -222,7 +219,7 @@ def turron_by_correct_guess2(melted):
 
     df = melted.copy()
     df['correct_guess'] = df.apply(rename_correct_guess, axis = 1)
-    g = sns.FacetGrid(df, col="variable", size=5, aspect=0.4)
+    g = sns.FacetGrid(df, col="variable", height=5, aspect=0.4)
     g.map(sns.barplot, "correct_guess", "value", "turron", palette=PALETTE, errwidth="2")
     g.add_legend(title="turron")
 

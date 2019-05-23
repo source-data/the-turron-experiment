@@ -110,14 +110,42 @@ sns.catplot(x="variable", y="value", hue="gender", kind="bar", data=melted)
 # ### Turron by Gender
 #%%
 
-def turron_by_gender(melted):
+# def turron_by_gender(melted):
+#     df = melted.copy()
+
+#     df['turron:gender'] = df['turron'] + ':' + df['gender']
+#     palette = {'A:f': 'royalblue', 'A:m':'lightsteelblue', 'B:f': 'burlywood', 'B:m': 'bisque'}
+#     return sns.catplot(x="variable", y="value", hue="turron:gender", kind="bar", data=df, palette = palette)
+# turron_by_gender(melted)
+#%%
+def turron_by_gender2(melted):
+    def rename_gender(row):
+        if row['gender'] == 'f':
+            return 'female'
+        elif row['gender'] == 'm':
+            return 'male'
+        else:
+            return None
+
     df = melted.copy()
+    df['gender'] = df.apply(rename_gender, axis = 1)
+    g = sns.FacetGrid(df, col="variable", size=5, aspect=0.4)
+    g.map(sns.barplot, "gender", "value", "turron", palette=PALETTE, errwidth="2")
+    g.add_legend(title="turron")
 
-    df['turron:gender'] = df['turron'] + ':' + df['gender']
-    palette = {'A:f': 'royalblue', 'A:m':'lightsteelblue', 'B:f': 'burlywood', 'B:m': 'bisque'}
-    return sns.catplot(x="variable", y="value", hue="turron:gender", kind="bar", data=df, palette = palette)
-turron_by_gender(melted)
+    g.axes[0,0].set_ylabel('mean score')
+    g.axes[0,0].xaxis.label.set_visible(False)
+    g.axes[0,1].xaxis.label.set_visible(False)
+    g.axes[0,2].set_xlabel('Gender')
+    g.axes[0,3].xaxis.label.set_visible(False)
+    g.axes[0,4].xaxis.label.set_visible(False)
+    # set figure title
+    plt.subplots_adjust(top=0.85)
+    g.fig.suptitle('turron:gender')
 
+    return g
+g = turron_by_gender2(melted)
+g.savefig("results/turron_by_gender.png", facecolor=g.fig.get_facecolor())
 #%% [markdown]
 # ## By Turron
 #%%

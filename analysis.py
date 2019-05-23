@@ -112,12 +112,11 @@ def gender_general_effect(melted):
 
     g = sns.catplot(x="variable", y="value", hue="gender", kind="bar", data=df, palette=PALETTE)
     plt.subplots_adjust(top=0.85)
-    p_values = '\n'.join(p_values)
     g.fig.suptitle(f"\nGender general effect.")
     g.axes[0,0].set_ylabel('mean score')
     g.axes[0,0].xaxis.label.set_visible(False)
     g.axes[0,0].text(4, 1.5, f"p-values:", fontweight='bold')
-    g.axes[0,0].text(4, 0, p_values)
+    g.axes[0,0].text(4, 0, '\n'.join(p_values))
     return g
 
 g = gender_general_effect(melted)
@@ -155,8 +154,15 @@ g.savefig("results/turron_by_gender.png", facecolor=g.fig.get_facecolor())
 #%% [markdown]
 # ## By Turron
 #%%
-sns.catplot(x="variable", y="value", hue="turron", kind="bar", data=melted, palette=PALETTE)
-
+def turron_general(melted):
+    g = sns.catplot(x="variable", y="value", hue="turron", kind="bar", data=melted, palette=PALETTE)
+    plt.subplots_adjust(top=0.85)
+    g.fig.suptitle(f"\nTurron A vs B")
+    g.axes[0,0].set_ylabel('mean score')
+    g.axes[0,0].xaxis.label.set_visible(False)
+    return g
+g = turron_general(melted)
+g.savefig("results/turron_general.png", facecolor=g.fig.get_facecolor())
 #%%
 sns.catplot(x="variable", y="value", hue="first_time_tasting", kind="bar", data=melted)
 sns.catplot(x="variable", y="value", hue="correct_guess", kind="bar", data=melted)

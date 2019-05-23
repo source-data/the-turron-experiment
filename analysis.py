@@ -72,6 +72,11 @@ def read_csv_and_preprocess_data(filename):
     melted = melted.apply(rename_variables, axis=1)
     melted['composite_variable'] = melted['variable'] + melted['turron']
     melted
+    # Remove 'sweetness' as a variable form the dataset, because we believe it was
+    # missinterpreted by many participants.
+    melted = melted.drop(melted[melted.variable == 'sweetness'].index)
+    df = df.drop('sweetness_A', axis=1)
+    df = df.drop('sweetness_B', axis=1)
     return df, melted
 
 df, melted = read_csv_and_preprocess_data("data.csv")
@@ -95,23 +100,28 @@ def gender_by_turron_per_category(melted):
 #%% [markdown]
 # ### Gender (t-test)
 #%%
-# comparissons = (
-#     ('sweetness_A', 'sweetness_B'),
-#     ('flavour_A', 'flavour_B'),
-#     ('visual_A', 'visual_B'),
-#     ('texture_A', 'texture_B'),
-#     ('overall_A', 'overall_B'),
-# )
+def gender_general_effect(melted):
+    df = melted.copy()
+    p_values = []
+    for param  in ['texture', 'flavour', 'visual', 'overall']:
+        females = df[(df['variable'] == param) & (df['gender'] == 'female')]
+        males = df[(df['variable'] == param) & (df['gender'] == 'male')]
+        statistic, pvalue = stats.ttest_ind(females['value'], males['value'])
+        print(f"P Value {param} = {pvalue}")
+        p_values.append(f"{param}: {pvalue:1.3f}")
 
-for param  in ['texture', 'flavour', 'visual', 'sweetness', 'overall']:
-    females = melted[(melted['variable'] == param) & (melted['gender'] == 'f')]
-    males = melted[(melted['variable'] == param) & (melted['gender'] == 'm')]
-    statistic, pvalue = stats.ttest_ind(females['value'], males['value'])
-    print(f"P Value {param} = {pvalue}")
+    g = sns.catplot(x="variable", y="value", hue="gender", kind="bar", data=df, palette=PALETTE)
+    plt.subplots_adjust(top=0.85)
+    p_values = '\n'.join(p_values)
+    g.fig.suptitle(f"\nGender general effect.")
+    g.axes[0,0].set_ylabel('mean score')
+    g.axes[0,0].xaxis.label.set_visible(False)
+    g.axes[0,0].text(4, 1.5, f"p-values:", fontweight='bold')
+    g.axes[0,0].text(4, 0, p_values)
+    return g
 
-#melted[(melted['variable'] == param) & (melted['gender'] == 'f')]
-sns.catplot(x="variable", y="value", hue="gender", kind="bar", data=melted)
-
+g = gender_general_effect(melted)
+g.savefig("results/gender_general_effect.png", facecolor=g.fig.get_facecolor())
 ####################################################################################################
 #%% [markdown]
 # ### Turron by Gender

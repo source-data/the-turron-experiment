@@ -340,9 +340,20 @@ for (cat_A, cat_B) in comparissons:
 #%% [markdown]
 # ### Effect of number of hours without eating
 #%%
-melted_hours = melted[['variable', 'turron', 'hours since last eat', 'value']].dropna()
-# melted_hours = melted_hours[melted_hours['variable'] == 'sweetness']
-sns.swarmplot(x='hours since last eat', y='value', hue='turron', data=melted_hours)
+
+def influence_of_fasting(melted):
+    melted_hours = melted[['variable', 'turron', 'hours since last eat', 'value']].dropna()
+    fig, ax = plt.subplots()
+    sns.swarmplot(x='hours since last eat', y='value', hue='turron', data=melted_hours, palette=PALETTE, size=8, edgecolor='gray', linewidth=0.5)
+    fig.set_size_inches(11.7, 8.27)
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    ax.axes.set_ylabel('score')
+    plt.title(f'Influence of fasting')
+    return fig, ax
+
+fig, ax = influence_of_fasting(melted)
+fig.savefig("results/influence_of_fasting.png", facecolor=fig.get_facecolor())
 
 #%% [markdown]
 # ### Analysing preference coherence

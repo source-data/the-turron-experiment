@@ -334,19 +334,45 @@ for (cat_A, cat_B) in comparissons:
 # ### Effect of number of hours without eating
 #%%
 
-def influence_of_fasting(melted):
+def influence_of_fasting(melted, hue=None):
     melted_hours = melted[['variable', 'turron', 'hours since last eat', 'value']].dropna()
-    fig, ax = plt.subplots()
-    sns.swarmplot(x='hours since last eat', y='value', hue='turron', data=melted_hours, palette=PALETTE, size=8, edgecolor='gray', linewidth=0.5)
-    fig.set_size_inches(11.7, 8.27)
-    ax.spines['right'].set_visible(False)
-    ax.spines['top'].set_visible(False)
-    ax.axes.set_ylabel('score')
-    plt.title(f'Influence of fasting')
+    correlations  = {}
+    for variable in ['texture', 'visual', 'flavour', 'overall']:
+        melted_hours_filtered = melted_hours[melted_hours['variable'] == variable]
+        _, _, r_value, p_value, _ = scipy.stats.linregress(melted_hours_filtered['hours since last eat'], melted_hours_filtered['value'])
+        correlations[variable] = {'r_value':r_value, 'p_value':p_value}
+    # fig, ax = plt.subplots()
+    # plt.plot(1, 1 + 5, linestyle='--')
+    g = sns.lmplot(x='hours since last eat', y='value', data=melted_hours, hue=hue, palette=PALETTE, size=8, col='variable', col_order = ['texture', 'visual', 'flavour', 'overall'])
+    g.axes[0,0].set_title(f"texture\ncorrelation: {correlations['texture']['r_value']:1.3f}\np: {correlations['texture']['p_value']:1.3f}")
+    g.axes[0,1].set_title(f"visual\ncorrelation: {correlations['visual']['r_value']:1.3f}\np: {correlations['visual']['p_value']:1.3f}")
+    g.axes[0,2].set_title(f"flavour\ncorrelation: {correlations['flavour']['r_value']:1.3f}\np: {correlations['flavour']['p_value']:1.3f}")
+    g.axes[0,3].set_title(f"overall\ncorrelation: {correlations['overall']['r_value']:1.3f}\np: {correlations['overall']['p_value']:1.3f}")
+    g.fig.set_size_inches(9, 4)
+    # g.axes[0,0].spines['left'].set_visible(False)
+    # ax.spines['top'].set_visible(False)
+    # ax.axes.set_ylabel('score')
+    plt.suptitle(f'Influence of fasting')
+    plt.subplots_adjust(top=0.75)
+
     return fig, ax
 
-fig, ax = influence_of_fasting(melted)
-fig.savefig("results/influence_of_fasting.png", facecolor=fig.get_facecolor())
+influence_of_fasting(melted)
+influence_of_fasting(melted, hue="turron")
+
+
+
+
+
+# for variable in ['texture', 'flavour', 'visual', 'overall']:
+#     fig, ax = influence_of_fasting(melted, variable)
+#     fig.savefig(f"results/influence_of_fasting_by_{variable}.png", facecolor=fig.get_facecolor())
+
+
+# g = sns.FacetGrid(df, col="variable", height=5, aspect=0.4)
+#     g.map(sns.barplot, "correct_guess", "value", "turron", palette=PALETTE, errwidth="2")
+#     g.add_legend(title="turron")
+
 
 #%% [markdown]
 # ### Analysing preference coherence

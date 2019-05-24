@@ -489,8 +489,37 @@ print(format_for_sankeymatic(sankey_data))
 
 #%%
 def guess_rate(df):
+    df = df.copy()
+    rename_values = lambda x: 'Correct' if x['correct_guess'] == 'Y' else 'Incorrect'
+    df['correct_guess'] = df.apply(rename_values, axis=1)
+
     fig, ax = plt.subplots()
-    sns.countplot(x='correct_guess', data=df)
+    sns.countplot(
+        x='correct_guess',
+        data=df,
+        order=['Correct', 'Incorrect'],
+        palette={
+            'Incorrect': 'darksalmon',
+            'Correct': 'mediumseagreen',
+        },
+    )
+
+
+    plt.title(f'Participants who correctly guessed \nwhich turron was the most expensive')
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    ax.spines['left'].set_visible(False)
+    ax.spines['bottom'].set_visible(False)
+    # ax.get_yaxis().set_visible(False)
+    plt.grid(color='lightgray', linestyle=':', linewidth=1, axis='y')
+    ax.yaxis.set_ticks([])
+    ax.text(0 - 0.215, 1, "12", alpha=0.7, color='white', fontsize=50, fontweight='bold')
+    ax.text(1 - 0.215, 1, "13", alpha=0.7, color='white', fontsize=50, fontweight='bold')
+    ax.tick_params(length=0)
+    ax.yaxis.label.set_visible(False)
+    ax.xaxis.label.set_visible(False)
+    fig.set_size_inches(5, 5, forward=True)
+
     return fig, ax
 fig, ax = guess_rate(df)
 fig.savefig("results/guess_rate.png", facecolor=fig.get_facecolor(), bbox_inches='tight')

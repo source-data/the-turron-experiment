@@ -29,6 +29,8 @@ In addition to turrón-related parameters, we also asked participants to answer 
 We also noted the gender of each participant on their questionnaire to analyse any possible gender:scoring or gender:accuracy interactions.
 
 ![](results/turron_experimental_design.png)
+*Experimental design. Participants were asked to blindly taste 2 differently priced variants of turrón. They were given the information that one turrón was significantly more expensive than the other one and then asked to fill out a questionnaire to rate each of the turrones by sweetness, texture, and visual parameters. They were also asked to have a guess at which of the 2 turrones was the expensive one.*
+
 
 We observed only **minor differences in scoring for visual, texture, sweetness and taste parameters between both turrón varieties despite the price difference**. In general the range of scoring was very similar between both turrón varieties, with very few low or high scores. Female participants tended to score higher for both turrones in visual and texture parameters.
 

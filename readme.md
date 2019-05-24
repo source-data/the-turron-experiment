@@ -1,5 +1,24 @@
 # The Turron Experiment
-Repo with the data and the analysis code
+The Turron Experiment was a fun exercise conducted by [Eva Benito]() and [Alejandro Riera](http://github.com/ariera/) in 2019.
+
+The main purpose was to learn (mainly Eva teaching Alex) things like experiment design, data collection, statistical analysis, reporting, and tools such as pandas, matplotlib, seaborn, etc...
+
+To do that, we conducted a turrón tasting experiment with the collaboration of EMBO staff. We asked participants to taste 2 turrón varieties, one that was expensive and one that was cheap. They didn't know which one was which, but they had to score it and guess.
+
+## What is it turrón?
+
+It is a typical spanish christmas sweet. Today comes in many different variations with all sort of ingredients, but the traditional one is made of almond and honey, in a shape and look similar to nougat in other countries.
+
+For this experiment we chose the _soft_ version, called _Jijona_ variety, in which the almonds are reduced to a delicious paste.
+
+
+## The study
+
+In this respository, you can find:
+
+* [The final report of our work](report.md)
+* [Along with the source data collected](data.csv)
+* [And our script to analyse it](analysis.py)
 
 ## Install
 ```bash
@@ -50,5 +69,6 @@ The advantage of this system is that it allows you to control which python versi
         - [ ] Experimental design
 - [ ] make better use of color to help differentiatie turron (a vs b) and gender (male vs female)
 - [ ] delete excel fil and keep just csv
+- [ ] remove emails from csv
 - [x] remove sweetness from all analysis and graphs
 - [x] ask annika about cake&learn

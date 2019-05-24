@@ -28,6 +28,8 @@ In addition to turrón-related parameters, we also asked participants to answer 
 
 We also noted the gender of each participant on their questionnaire to analyse any possible gender:scoring or gender:accuracy interactions.
 
+![](results/turron_experimental_design.png)
+
 We observed only **minor differences in scoring for visual, texture, sweetness and taste parameters between both turrón varieties despite the price difference**. In general the range of scoring was very similar between both turrón varieties, with very few low or high scores. Female participants tended to score higher for both turrones in visual and texture parameters.
 
 Interestingly, **participants that had already tasted turrón before** (i.e. they were non-naive) **had a higher success rate in guessing the expensive turrón**. They also scored turrón_A higher than turrón_B in several parameters.
@@ -171,14 +173,13 @@ In these categories male score was bordered (on average) the 5.
 ## Conclusions
 
 * There is no big difference in liking or general scoring between cheap and expensive turrón
-* most people at EMBO have breakfast bw 7-9am
 * There is no effect of fasting on turrón scoring
 * The sweetness question was too ambiguous
 * Non-naive tasters tended to be better at guessing which was the expensive variant
 * Female participants tended to generally score better for texture and visual
 * Most participants were coherent in their scoring-guessing
-* some people cannot process information on our ballots
-
+* Most people at EMBO have breakfast bw 7-9am
+* Some people cannot process information on our ballots
 
 ## Q&A
 
@@ -201,7 +202,7 @@ That there is no difference in scoring between an expensive and a cheap turrón 
 We know :-) We just wanted to play around with data collection and analysis concepts, this is just for demonstration purposes. Also, you were all wanting to know if you guessed correctly which one of the 2 turrones was the expensive one :-D
 
 **Can I see the data?**
-Yep! It's all right [here](linkToDataOnGitHub)
+Yep! It's all right [here](https://github.com/ariera/the-turron-experiment/blob/master/data.csv)
 
 
 

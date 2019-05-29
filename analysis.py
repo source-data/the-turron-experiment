@@ -334,31 +334,98 @@ for (cat_A, cat_B) in comparissons:
 # ### Effect of number of hours without eating
 #%%
 
-def influence_of_fasting(melted, hue=None):
+def influence_of_fasting(melted):
     melted_hours = melted[['variable', 'turron', 'hours since last eat', 'value']].dropna()
     correlations  = {}
     for variable in ['texture', 'visual', 'flavour', 'overall']:
         melted_hours_filtered = melted_hours[melted_hours['variable'] == variable]
         _, _, r_value, p_value, _ = scipy.stats.linregress(melted_hours_filtered['hours since last eat'], melted_hours_filtered['value'])
         correlations[variable] = {'r_value':r_value, 'p_value':p_value}
-    # fig, ax = plt.subplots()
-    # plt.plot(1, 1 + 5, linestyle='--')
-    g = sns.lmplot(x='hours since last eat', y='value', data=melted_hours, hue=hue, palette=PALETTE, size=8, col='variable', col_order = ['texture', 'visual', 'flavour', 'overall'])
+
+    g = sns.lmplot(x='hours since last eat', y='value', data=melted_hours, palette=PALETTE, size=8, col='variable', col_order = ['texture', 'visual', 'flavour', 'overall'])
     g.axes[0,0].set_title(f"texture\ncorrelation: {correlations['texture']['r_value']:1.3f}\np: {correlations['texture']['p_value']:1.3f}")
     g.axes[0,1].set_title(f"visual\ncorrelation: {correlations['visual']['r_value']:1.3f}\np: {correlations['visual']['p_value']:1.3f}")
     g.axes[0,2].set_title(f"flavour\ncorrelation: {correlations['flavour']['r_value']:1.3f}\np: {correlations['flavour']['p_value']:1.3f}")
     g.axes[0,3].set_title(f"overall\ncorrelation: {correlations['overall']['r_value']:1.3f}\np: {correlations['overall']['p_value']:1.3f}")
     g.fig.set_size_inches(9, 4)
-    # g.axes[0,0].spines['left'].set_visible(False)
+    g.axes[0,1].spines['left'].set_visible(False)
+    g.axes[0,2].spines['left'].set_visible(False)
+    g.axes[0,3].spines['left'].set_visible(False)
+    g.axes[0,1].tick_params(length=0)
+    g.axes[0,2].tick_params(length=0)
+    g.axes[0,3].tick_params(length=0)
+    g.axes[0,0].tick_params(length=0)
     # ax.spines['top'].set_visible(False)
     # ax.axes.set_ylabel('score')
     plt.suptitle(f'Influence of fasting')
     plt.subplots_adjust(top=0.75)
 
-    return fig, ax
+    return g
 
-influence_of_fasting(melted)
-influence_of_fasting(melted, hue="turron")
+g = influence_of_fasting(melted)
+g.savefig("results/influence_of_fasting.png", facecolor=g.fig.get_facecolor())
+
+
+
+
+
+def influence_of_fasting_by_turron(melted):
+    melted_hours = melted[['variable', 'turron', 'hours since last eat', 'value']].dropna()
+    correlations  = {}
+    for variable in ['texture', 'visual', 'flavour', 'overall']:
+        correlations[variable] = {}
+        turron_A = melted_hours[(melted_hours['variable'] == variable) & (melted_hours['turron'] == 'A (expensive)') ]
+        # print(turron_A)
+        _, _, r_value_A, p_value_A, _ = scipy.stats.linregress(turron_A['hours since last eat'], turron_A['value'])
+        correlations[variable]['turron_A'] = {'r_value':r_value_A, 'p_value':p_value_A}
+        #
+        turron_B = melted_hours[(melted_hours['variable'] == variable) & (melted_hours['turron'] == 'B (cheap)') ]
+        # print(turron_B)
+        _, _, r_value_B, p_value_B, _ = scipy.stats.linregress(turron_B['hours since last eat'], turron_B['value'])
+        correlations[variable]['turron_B'] = {'r_value':r_value_B, 'p_value':p_value_B}
+
+    # fig, ax = plt.subplots()
+    # plt.plot(1, 1 + 5, linestyle='--')
+    g = sns.lmplot(x='hours since last eat', y='value', data=melted_hours, hue = 'turron', palette=PALETTE, size=8, col='variable', col_order = ['texture', 'visual', 'flavour', 'overall'], legend = False)
+    g.axes[0,0].set_title(f"""
+    texture
+    A: corr: {correlations['texture']['turron_A']['r_value']:1.3f}; p: {correlations['texture']['turron_A']['p_value']:1.3f}
+    B: corr: {correlations['texture']['turron_B']['r_value']:1.3f}; p: {correlations['texture']['turron_B']['p_value']:1.3f}
+    """)
+    g.axes[0,1].set_title(f"""
+    visual
+    A: corr: {correlations['visual']['turron_A']['r_value']:1.3f}; p: {correlations['visual']['turron_A']['p_value']:1.3f}
+    B: corr: {correlations['visual']['turron_B']['r_value']:1.3f}; p: {correlations['visual']['turron_B']['p_value']:1.3f}
+    """)
+    g.axes[0,2].set_title(f"""
+    flavour
+    A: corr: {correlations['flavour']['turron_A']['r_value']:1.3f}; p: {correlations['flavour']['turron_A']['p_value']:1.3f}
+    B: corr: {correlations['flavour']['turron_B']['r_value']:1.3f}; p: {correlations['flavour']['turron_B']['p_value']:1.3f}
+    """)
+    g.axes[0,3].set_title(f"""
+    overall
+    A: corr: {correlations['overall']['turron_A']['r_value']:1.3f}; p: {correlations['overall']['turron_A']['p_value']:1.3f}
+    B: corr: {correlations['overall']['turron_B']['r_value']:1.3f}; p: {correlations['overall']['turron_B']['p_value']:1.3f}
+    """)
+    g.fig.set_size_inches(9, 4)
+    g.axes[0,1].spines['left'].set_visible(False)
+    g.axes[0,2].spines['left'].set_visible(False)
+    g.axes[0,3].spines['left'].set_visible(False)
+    g.axes[0,1].tick_params(length=0)
+    g.axes[0,2].tick_params(length=0)
+    g.axes[0,3].tick_params(length=0)
+    g.axes[0,0].tick_params(length=0)
+    # g.axes[0,0].spines['left'].set_visible(False)
+    # ax.spines['top'].set_visible(False)
+    # ax.axes.set_ylabel('score')
+    plt.suptitle(f'Influence of fasting')
+    plt.subplots_adjust(top=0.70)
+    plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
+
+    return g
+
+g = influence_of_fasting_by_turron(melted)
+g.savefig("results/influence_of_fasting_by_turron.png", facecolor=g.fig.get_facecolor())
 
 
 

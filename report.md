@@ -52,11 +52,11 @@ All in all, it was a useful experiment to learn the basics of experimental desig
 
 We are aware that there are several limitations in our experiment and that all of the analyses and observations described in this report have to be taken with caution.
 
-More specifically, we are aware of the following limitations: 
+More specifically, we are aware of the following limitations:
 
 * The number of subjects was too low to draw solid conclusions on guess accuracy. Although there is a strong trend towards non-naive tasters to perform better in distinguishind the expensive and cheap turron, we know that this could be due to a skewed sample of limited size. Similarly, and although we were not expecting huge variations in the scoring range in such a tasting experiment, we believe that our sample size was in any case too small to detect potentially interesting differences in scoring parameters.
 * lack of independance
-* Our starting material amounts of both turrones was rather small in size. This prevented us from conducting a more complex tasting experiment, such as presenting each candidate with several pieces of each of the turrones and asking them to have a guess for each of the pieces. 
+* Our starting material amounts of both turrones was rather small in size. This prevented us from conducting a more complex tasting experiment, such as presenting each candidate with several pieces of each of the turrones and asking them to have a guess for each of the pieces.
 * Time restrains: since we asked participants to voluntarily participate in the tasting experiment, we did not want to design a complicated experiment that would take up a lot of their time. An experiment like the one formulated above with multiple tasting could have been more informative but would have defied the objective to make it short and doable for participants.
 * Although we designed our questions in advance and tried to formulate them in the most clear way possible, we still encountered some instances in which the purpose of the question was not clear to participants. Such is the case of the question about "sweetness", in which participants were unclear whether we were asking them to rate sweetness level, or whether we were asking them to give the parameter sweetness a subjective score.
 * expectations
@@ -163,7 +163,10 @@ By this definition we find that:
 
 ### Influence of fasting
 
+We hypothesized that the time since the last meal might have a positive effect on the scoring of turron, i.e. that people who are more hungry might score the turron higher. Our result show in fact the opposite trend for all parameters, reaching significance for visual and nearly for flavour when analyzing both turrones together. When splitting both turrones, the trend appears to be stronger for turron A.
+
 ![](results/influence_of_fasting.png)
+![](results/influence_of_fasting_by_turron.png)
 
 
 ## Discussion

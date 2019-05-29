@@ -5,6 +5,10 @@ import seaborn as sns
 import scipy
 import scipy.stats as stats
 import matplotlib.pyplot as plt
+import statsmodels
+from statsmodels.formula.api import ols
+from statsmodels.stats.anova import anova_lm
+
 plt.style.use('tableau-colorblind10')
 sns.set(style="ticks")
 PALETTE = {
@@ -147,22 +151,36 @@ def turron_by_gender2(melted):
     # set figure title
     plt.subplots_adjust(top=0.85)
     g.fig.suptitle('turron:gender')
-
+    
     return g
 g = turron_by_gender2(melted)
 g.savefig("results/turron_by_gender.png", facecolor=g.fig.get_facecolor())
 
+
+#%% [markdown]
+# ### Turron by Gender 2-way ANOVA
+
+for variable in ['texture', 'visual', 'flavour', 'overall']:
+    filtered = melted[melted['variable'] == variable]
+    formula = 'value ~ C(turron) + C(gender) + C(turron):C(gender)'
+    model = ols(formula, filtered).fit()
+    aov_table = anova_lm(model, typ=2)
+    print('2-WAY ANOVA table for ' + variable)
+    print(aov_table)
+
+
+
 #%% [markdown]
 # ### Turron A vs B by Gender (paired t-test)
 #%%
-comparissons = (
+comparisons = (
     ('flavour_A', 'flavour_B'),
     ('visual_A', 'visual_B'),
     ('texture_A', 'texture_B'),
     ('overall_A', 'overall_B'),
 )
 
-for (cat_A, cat_B) in comparissons:
+for (cat_A, cat_B) in comparisons:
     for gender in ('male', 'female',):
         df_cat = df[[cat_A, cat_B, 'gender']].dropna()
         df_cat['delta'] = df_cat[cat_A] - df_cat[cat_B]
@@ -241,6 +259,39 @@ def turron_by_first_time_tasting2(melted):
 g = turron_by_first_time_tasting2(melted)
 g.savefig("results/turron_by_first_time_tasting.png", facecolor=g.fig.get_facecolor())
 
+#%% [markdown]
+# ### Turron by first time tasting 2-WAY ANOVA
+
+
+for variable in ['texture', 'visual', 'flavour', 'overall']:
+    filtered = melted[melted['variable'] == variable]
+    formula = 'value ~ C(turron) + C(first_time_tasting) + C(turron):C(first_time_tasting)'
+    model = ols(formula, filtered).fit()
+    aov_table = anova_lm(model, typ=2)
+    print('2-WAY ANOVA table for ' + variable)
+    print(aov_table)
+
+
+
+#%% [markdown]
+# ## Turron by first time tasting comparisons
+
+comparisons = (
+    ('flavour_A', 'flavour_B'),
+    ('visual_A', 'visual_B'),
+    ('texture_A', 'texture_B'),
+    ('overall_A', 'overall_B'),
+)
+
+for (cat_A, cat_B) in comparisons:
+    for first_time_taster in ('N', 'Y',):
+        df_cat = df[[cat_A, cat_B, 'first_time_tasting']].dropna()
+        df_cat['delta'] = df_cat[cat_A] - df_cat[cat_B]
+        df_cat = df_cat[df_cat['first_time_tasting'] == first_time_taster]
+
+        statistic, pvalue = stats.ttest_rel(df_cat[cat_A], df_cat[cat_B])
+        print(f"P Value first_time_tasting: {first_time_taster};\t{cat_A} vs {cat_B}\t= {pvalue:1.4f} / delta mean {df_cat['delta'].mean():1.4f}")
+
 
 #%%
 def turron_by_correct_guess2(melted):
@@ -270,6 +321,9 @@ def turron_by_correct_guess2(melted):
     return g
 g = turron_by_correct_guess2(melted)
 g.savefig("results/turron_by_correct_guess.png", facecolor=g.fig.get_facecolor())
+
+
+
 #%%
 def success_rate_by_naiveness(df):
     contingency = pd.crosstab(df.first_time_tasting, df.correct_guess)

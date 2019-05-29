@@ -24,13 +24,15 @@ In this respository, you can find:
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-pip install --update pip setuptools
+pip install --upgrade pip setuptools
 pip install -r requirements
 ```
 
 ## Working with Jupyter Notebooks on VSCode
 
-The advantage of this system is that it allows you to control which python version and which versions of libraries are available (specified on `requirements.txt`), instead of just running whatever python VSCode happens to find installed and not knowing which libraries or versions are available.
+The main analysis file is using the mixed VSCode / Jupyter syntax. You can run it as a normal python script, but you can also execute cell by cell and see the inmediate output _a la jupyter_ just within your code editor. Read more about it here: https://code.visualstudio.com/docs/python/jupyter-support
+
+Following these steps has advantage of allowing you to control which python version and which versions of libraries are available (specified on `requirements.txt`), instead of just running whatever python VSCode happens to find installed and not knowing which libraries or versions are available.
 
 1. Start a Jupyter server on your console
     ```bash

@@ -1,4 +1,4 @@
-# INDEX
+# The Turron Experiment
 
 ## Summary
 
@@ -20,8 +20,9 @@ Since we had 2 turrón varieties of the same kind but of very different prices a
 
 Turrón variety #1 ('expensive_turrón' or 'turrón_A') cost 5x as much as turrón variety #2 ('cheap_turrón' or 'turrón_B'). We designed a simple experiment in which volunteers would taste both turrón varieties and then be asked to fill in a questionnaire. They scored both turrones on parameters 'texture', 'visual appearace', 'taste', 'sweetness' and 'overall score'. Our aim with these questions was to collect information that would help us evaluate whether subjects had a preference for turrón A or turrón B.
 
-![](results/turrones.JPG)
-*Image depicting the original packaging for both turrones and their approximate prices.
+| ![](results/turrones.JPG) |
+|:--:|
+| *Image depicting the original packaging for both turrones and their approximate prices.* |
 
 In addition to turrón-related parameters, we also asked participants to answer the following questions:
 
@@ -31,8 +32,10 @@ In addition to turrón-related parameters, we also asked participants to answer 
 
 We also noted the gender of each participant on their questionnaire to analyse any possible gender:scoring or gender:accuracy interactions.
 
-![](results/turron_experimental_design.png)
-*Experimental design. Participants were asked to blindly taste 2 differently priced variants of turrón. They were given the information that one turrón was significantly more expensive than the other one and then asked to fill out a questionnaire to rate each of the turrones by sweetness, texture, and visual parameters. They were also asked to have a guess at which of the 2 turrones was the expensive one.*
+| ![](results/turron_experimental_design.png) |
+|:--:|
+| *Experimental design. Participants were asked to blindly taste 2 differently priced variants of turrón. They were given the information that one turrón was significantly more expensive than the other one and then asked to fill out a questionnaire to rate each of the turrones by sweetness, texture, and visual parameters. They were also asked to have a guess at which of the 2 turrones was the expensive one.* |
+
 
 
 We observed only **minor differences in scoring for visual, texture, sweetness and taste parameters between both turrón varieties despite the price difference**. In general the range of scoring was very similar between both turrón varieties, with very few low or high scores. Female participants tended to score higher for both turrones in visual and texture parameters.
@@ -55,11 +58,11 @@ All in all, it was a useful experiment to learn the basics of experimental desig
 
 We are aware that there are several limitations in our experiment and that all of the analyses and observations described in this report have to be taken with caution.
 
-More specifically, we are aware of the following limitations: 
+More specifically, we are aware of the following limitations:
 
 * The number of subjects was too low to draw solid conclusions on guess accuracy. Although there is a strong trend towards non-naive tasters to perform better in distinguishind the expensive and cheap turron, we know that this could be due to a skewed sample of limited size. Similarly, and although we were not expecting huge variations in the scoring range in such a tasting experiment, we believe that our sample size was in any case too small to detect potentially interesting differences in scoring parameters.
-* Tasting wat not independent for both groups, i.e. we had participants taste both turrones within a limited time frame. An alternative design to compare turrón A and B might have been to split participants and have half taste one turrón and half taste the other. We decided to have all participants taste both to keep their interest up and to make it a challenge to try to guess which one the expensive one was. 
-* Our starting material amounts of both turrones was rather small in size. This prevented us from conducting a more complex tasting experiment, such as presenting each candidate with several pieces of each of the turrones and asking them to have a guess for each of the pieces. 
+* Tasting wat not independent for both groups, i.e. we had participants taste both turrones within a limited time frame. An alternative design to compare turrón A and B might have been to split participants and have half taste one turrón and half taste the other. We decided to have all participants taste both to keep their interest up and to make it a challenge to try to guess which one the expensive one was.
+* Our starting material amounts of both turrones was rather small in size. This prevented us from conducting a more complex tasting experiment, such as presenting each candidate with several pieces of each of the turrones and asking them to have a guess for each of the pieces.
 * Time restrains: since we asked participants to voluntarily participate in the tasting experiment, we did not want to design a complicated experiment that would take up a lot of their time. An experiment like the one formulated above with multiple tasting could have been more informative but would have defied the objective to make it short and doable for participants.
 * Although we designed our questions in advance and tried to formulate them in the most clear way possible, we still encountered some instances in which the purpose of the question was not clear to participants. Such is the case of the question about "sweetness", in which participants were unclear whether we were asking them to rate sweetness level, or whether we were asking them to give the parameter sweetness a subjective score.
 * expectations
@@ -169,7 +172,10 @@ By this definition we find that:
 
 ### Influence of fasting
 
+We hypothesized that the time since the last meal might have a positive effect on the scoring of turron, i.e. that people who are more hungry might score the turron higher. Our result show in fact the opposite trend for all parameters, reaching significance for visual and nearly for flavour when analyzing both turrones together. When splitting both turrones, the trend appears to be stronger for turron A.
+
 ![](results/influence_of_fasting.png)
+![](results/influence_of_fasting_by_turron.png)
 
 
 ## Discussion
@@ -214,7 +220,7 @@ That there is no difference in scoring between an expensive and a cheap turrón 
 We know :-) We just wanted to play around with data collection and analysis concepts, this is just for demonstration purposes. Also, you were all wanting to know if you guessed correctly which one of the 2 turrones was the expensive one :-D
 
 **Can I see the data?**
-Yep! It's all right [here](https://github.com/ariera/the-turron-experiment/blob/master/data.csv)
+Yep! It's all right [here](data.csv)
 
 
 

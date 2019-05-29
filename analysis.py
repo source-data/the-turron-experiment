@@ -342,7 +342,15 @@ def influence_of_fasting(melted):
         _, _, r_value, p_value, _ = scipy.stats.linregress(melted_hours_filtered['hours since last eat'], melted_hours_filtered['value'])
         correlations[variable] = {'r_value':r_value, 'p_value':p_value}
 
-    g = sns.lmplot(x='hours since last eat', y='value', data=melted_hours, palette=PALETTE, size=8, col='variable', col_order = ['texture', 'visual', 'flavour', 'overall'])
+    g = sns.lmplot(
+        x='hours since last eat',
+        y='value',
+        data=melted_hours,
+        palette=PALETTE,
+        size=8,
+        col='variable',
+        col_order = ['texture', 'visual', 'flavour', 'overall']
+    )
     g.axes[0,0].set_title(f"texture\ncorrelation: {correlations['texture']['r_value']:1.3f}\np: {correlations['texture']['p_value']:1.3f}")
     g.axes[0,1].set_title(f"visual\ncorrelation: {correlations['visual']['r_value']:1.3f}\np: {correlations['visual']['p_value']:1.3f}")
     g.axes[0,2].set_title(f"flavour\ncorrelation: {correlations['flavour']['r_value']:1.3f}\np: {correlations['flavour']['p_value']:1.3f}")
@@ -375,18 +383,24 @@ def influence_of_fasting_by_turron(melted):
     for variable in ['texture', 'visual', 'flavour', 'overall']:
         correlations[variable] = {}
         turron_A = melted_hours[(melted_hours['variable'] == variable) & (melted_hours['turron'] == 'A (expensive)') ]
-        # print(turron_A)
         _, _, r_value_A, p_value_A, _ = scipy.stats.linregress(turron_A['hours since last eat'], turron_A['value'])
         correlations[variable]['turron_A'] = {'r_value':r_value_A, 'p_value':p_value_A}
         #
         turron_B = melted_hours[(melted_hours['variable'] == variable) & (melted_hours['turron'] == 'B (cheap)') ]
-        # print(turron_B)
         _, _, r_value_B, p_value_B, _ = scipy.stats.linregress(turron_B['hours since last eat'], turron_B['value'])
         correlations[variable]['turron_B'] = {'r_value':r_value_B, 'p_value':p_value_B}
 
-    # fig, ax = plt.subplots()
-    # plt.plot(1, 1 + 5, linestyle='--')
-    g = sns.lmplot(x='hours since last eat', y='value', data=melted_hours, hue = 'turron', palette=PALETTE, size=8, col='variable', col_order = ['texture', 'visual', 'flavour', 'overall'], legend = False)
+    g = sns.lmplot(
+        x='hours since last eat',
+        y='value',
+        data=melted_hours,
+        hue='turron',
+        palette=PALETTE,
+        size=8,
+        col='variable',
+        col_order=['texture', 'visual', 'flavour', 'overall'],
+        legend = False
+    )
     g.axes[0,0].set_title(f"""
     texture
     A: corr: {correlations['texture']['turron_A']['r_value']:1.3f}; p: {correlations['texture']['turron_A']['p_value']:1.3f}
@@ -411,10 +425,11 @@ def influence_of_fasting_by_turron(melted):
     g.axes[0,1].spines['left'].set_visible(False)
     g.axes[0,2].spines['left'].set_visible(False)
     g.axes[0,3].spines['left'].set_visible(False)
+    g.axes[0,0].tick_params(length=0)
     g.axes[0,1].tick_params(length=0)
     g.axes[0,2].tick_params(length=0)
     g.axes[0,3].tick_params(length=0)
-    g.axes[0,0].tick_params(length=0)
+    # g.axes[0,0].xaxis.set_ticks([0, 10, 20])
     # g.axes[0,0].spines['left'].set_visible(False)
     # ax.spines['top'].set_visible(False)
     # ax.axes.set_ylabel('score')

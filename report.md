@@ -1,4 +1,4 @@
-# INDEX
+# The Turron Experiment
 
 ## Summary
 
@@ -20,8 +20,9 @@ Since we had 2 turrón varieties of the same kind but of very different prices a
 
 Turrón variety #1 ('expensive_turrón' or 'turrón_A') cost 5x as much as turrón variety #2 ('cheap_turrón' or 'turrón_B'). We designed a simple experiment in which volunteers would taste both turrón varieties and then be asked to fill in a questionnaire. They scored both turrones on parameters 'texture', 'visual appearace', 'taste', 'sweetness' and 'overall score'. Our aim with these questions was to collect information that would help us evaluate whether subjects had a preference for turrón A or turrón B.
 
-![](results/turrones.JPG)
-*Image depicting the original packaging for both turrones and their approximate prices.
+| ![](results/turrones.JPG) |
+|:--:|
+| *Image depicting the original packaging for both turrones and their approximate prices.* |
 
 In addition to turrón-related parameters, we also asked participants to answer the following questions:
 
@@ -31,8 +32,10 @@ In addition to turrón-related parameters, we also asked participants to answer 
 
 We also noted the gender of each participant on their questionnaire to analyse any possible gender:scoring or gender:accuracy interactions.
 
-![](results/turron_experimental_design.png)
-*Experimental design. Participants were asked to blindly taste 2 differently priced variants of turrón. They were given the information that one turrón was significantly more expensive than the other one and then asked to fill out a questionnaire to rate each of the turrones by sweetness, texture, and visual parameters. They were also asked to have a guess at which of the 2 turrones was the expensive one.*
+| ![](results/turron_experimental_design.png) |
+|:--:|
+| *Experimental design. Participants were asked to blindly taste 2 differently priced variants of turrón. They were given the information that one turrón was significantly more expensive than the other one and then asked to fill out a questionnaire to rate each of the turrones by sweetness, texture, and visual parameters. They were also asked to have a guess at which of the 2 turrones was the expensive one.* |
+
 
 
 We observed only **minor differences in scoring for visual, texture, sweetness and taste parameters between both turrón varieties despite the price difference**. In general the range of scoring was very similar between both turrón varieties, with very few low or high scores. Female participants tended to score higher for both turrones in visual and texture parameters.
@@ -217,7 +220,7 @@ That there is no difference in scoring between an expensive and a cheap turrón 
 We know :-) We just wanted to play around with data collection and analysis concepts, this is just for demonstration purposes. Also, you were all wanting to know if you guessed correctly which one of the 2 turrones was the expensive one :-D
 
 **Can I see the data?**
-Yep! It's all right [here](https://github.com/ariera/the-turron-experiment/blob/master/data.csv)
+Yep! It's all right [here](data.csv)
 
 
 

@@ -20,6 +20,9 @@ Since we had 2 turrón varieties of the same kind but of very different prices a
 
 Turrón variety #1 ('expensive_turrón' or 'turrón_A') cost 5x as much as turrón variety #2 ('cheap_turrón' or 'turrón_B'). We designed a simple experiment in which volunteers would taste both turrón varieties and then be asked to fill in a questionnaire. They scored both turrones on parameters 'texture', 'visual appearace', 'taste', 'sweetness' and 'overall score'. Our aim with these questions was to collect information that would help us evaluate whether subjects had a preference for turrón A or turrón B.
 
+![](results/turrones.JPG)
+*Image depicting the original packaging for both turrones and their approximate prices.
+
 In addition to turrón-related parameters, we also asked participants to answer the following questions:
 
 * Which of the 2 turrones do you think is the expensive one? - This question would allow us to analyse guess accuracy and coherence between turrón scoring and guess. It was also a great motivator to engage participants, as they were presented with a challenge.
@@ -55,7 +58,7 @@ We are aware that there are several limitations in our experiment and that all o
 More specifically, we are aware of the following limitations:
 
 * The number of subjects was too low to draw solid conclusions on guess accuracy. Although there is a strong trend towards non-naive tasters to perform better in distinguishind the expensive and cheap turron, we know that this could be due to a skewed sample of limited size. Similarly, and although we were not expecting huge variations in the scoring range in such a tasting experiment, we believe that our sample size was in any case too small to detect potentially interesting differences in scoring parameters.
-* lack of independance
+* Tasting wat not independent for both groups, i.e. we had participants taste both turrones within a limited time frame. An alternative design to compare turrón A and B might have been to split participants and have half taste one turrón and half taste the other. We decided to have all participants taste both to keep their interest up and to make it a challenge to try to guess which one the expensive one was.
 * Our starting material amounts of both turrones was rather small in size. This prevented us from conducting a more complex tasting experiment, such as presenting each candidate with several pieces of each of the turrones and asking them to have a guess for each of the pieces.
 * Time restrains: since we asked participants to voluntarily participate in the tasting experiment, we did not want to design a complicated experiment that would take up a lot of their time. An experiment like the one formulated above with multiple tasting could have been more informative but would have defied the objective to make it short and doable for participants.
 * Although we designed our questions in advance and tried to formulate them in the most clear way possible, we still encountered some instances in which the purpose of the question was not clear to participants. Such is the case of the question about "sweetness", in which participants were unclear whether we were asking them to rate sweetness level, or whether we were asking them to give the parameter sweetness a subjective score.
@@ -83,6 +86,9 @@ We noticed that the question about sweetness was ambiguous. Some participants sc
 
 ###  Data collection
 
+Data was collected using questionnaires that participants filled out right after tasting both turrones. The image below shows an example of a questionnaire:
+
+![](results/questionnaire_1.JPG)
 
 ## Results
 

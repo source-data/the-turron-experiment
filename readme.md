@@ -62,13 +62,14 @@ The advantage of this system is that it allows you to control which python versi
     - [x] group analysis by theme
 - writting report
     - Alex:
-        - [ ] results
-        - [ ] conclussions
+        - [x] results
+        - [x] conclussions
     - Eva:
-        - [ ] Intro
-        - [ ] Experimental design
-- [ ] make better use of color to help differentiatie turron (a vs b) and gender (male vs female)
+        - [x] Intro
+        - [x] Experimental design
+- [x] make better use of color to help differentiatie turron (a vs b) and gender (male vs female)
 - [ ] delete excel fil and keep just csv
 - [ ] remove emails from csv
 - [x] remove sweetness from all analysis and graphs
 - [x] ask annika about cake&learn
+- [ ] MANOVA for first_time_tasting and gender_by_turron

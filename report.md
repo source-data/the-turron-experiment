@@ -20,7 +20,7 @@ Since we had 2 turrón varieties of the same kind but of very different prices a
 
 Turrón variety #1 ('expensive_turrón' or 'turrón_A') cost 5x as much as turrón variety #2 ('cheap_turrón' or 'turrón_B'). We designed a simple experiment in which volunteers would taste both turrón varieties and then be asked to fill in a questionnaire. They scored both turrones on parameters 'texture', 'visual appearace', 'taste', 'sweetness' and 'overall score'. Our aim with these questions was to collect information that would help us evaluate whether subjects had a preference for turrón A or turrón B.
 
-![](results/turrones.jpg)
+![](results/turrones.JPG)
 *Image depicting the original packaging for both turrones and their approximate prices.
 
 In addition to turrón-related parameters, we also asked participants to answer the following questions:
@@ -88,7 +88,7 @@ We noticed that the question about sweetness was ambiguous. Some participants sc
 
 Data was collected using questionnaires that participants filled out right after tasting both turrones. The image below shows an example of a questionnaire:
 
-![](results/questionnaire_1.jpg)
+![](results/questionnaire_1.JPG)
 
 ## Results
 

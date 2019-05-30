@@ -10,10 +10,6 @@ The experiment was limited in sample size, so no solid conclusions can be driven
 
 ## Introduction
 
-TODO:
-* infographic with experimental design
-* pictures of turron boxes
-
 Altough EMBO is a scientific organisation, not all staff comes from a scientific background. We did this experiment as part of a **learning exercise to get acquainted with concepts like experimental design, data collection, data analysis and reporting**. We were convinced that forcing ourselves to do as realistic an experiment as possible would give us the biggest learning outcome.
 
 Since we had 2 turrón varieties of the same kind but of very different prices at hand, we reasoned that it would be a 'fun' experiment to **have EMBO staff try to differentiate those 2 varieties from each other simply by a series of parameters, including taste, texture, and visual appearance**.
@@ -172,7 +168,7 @@ By this definition we find that:
 
 ### Influence of fasting
 
-We hypothesized that the time since the last meal might have a positive effect on the scoring of turron, i.e. that people who are more hungry might score the turron higher. Our result show in fact the opposite trend for all parameters, reaching significance for visual and nearly for flavour when analyzing both turrones together. When splitting both turrones, the trend appears to be stronger for turron A.
+We hypothesized that the time since the last meal might have a positive effect on the scoring of turron, i.e., that people who are more hungry might score the turron higher. Our result show in fact the opposite trend for all parameters, reaching significance for visual and nearly for flavour when analyzing both turrones together. When splitting both turrones, the trend appears to be stronger for turron A.
 
 ![](results/influence_of_fasting.png)
 ![](results/influence_of_fasting_by_turron.png)
@@ -191,11 +187,11 @@ In these categories male score was bordered (on average) the 5.
 ## Conclusions
 
 * There is no big difference in liking or general scoring between cheap and expensive turrón
-* There is no effect of fasting on turrón scoring
+* We found a negative correlation between fasting time and scoring, reaching significance in visual appeal
 * The sweetness question was too ambiguous
 * Non-naive tasters tended to be better at guessing which was the expensive variant
 * Female participants tended to generally score better for texture and visual
 * Most participants were coherent in their scoring-guessing
 * Most people at EMBO have breakfast bw 7-9am
-* Some people cannot process information on our ballots
+* Some people could not process information on our ballots
 

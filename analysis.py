@@ -151,7 +151,7 @@ def turron_by_gender2(melted):
     # set figure title
     plt.subplots_adjust(top=0.85)
     g.fig.suptitle('turron:gender')
-    
+
     return g
 g = turron_by_gender2(melted)
 g.savefig("results/turron_by_gender.png", facecolor=g.fig.get_facecolor())
@@ -401,7 +401,7 @@ def influence_of_fasting(melted):
         y='value',
         data=melted_hours,
         palette=PALETTE,
-        size=8,
+        height=8,
         col='variable',
         col_order = ['texture', 'visual', 'flavour', 'overall']
     )
@@ -450,7 +450,7 @@ def influence_of_fasting_by_turron(melted):
         data=melted_hours,
         hue='turron',
         palette=PALETTE,
-        size=8,
+        height=8,
         col='variable',
         col_order=['texture', 'visual', 'flavour', 'overall'],
         legend = False

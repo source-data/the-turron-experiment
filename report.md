@@ -1,5 +1,5 @@
 # The Turron Experiment
-
+By [Eva Benito Garagorri](https://github.com/evilla-19) and [Alejandro Riera Mainar](http://github.com/ariera/) published 2019-06-06.
 ## Summary
 
 In order to get practical experience with data collection and analysis, we conducted a turrón tasting experiment with the collaboration of EMBO staff. We asked 24 participants to taste 2 turrón varieties, one that was expensive and one that was cheap. Participants were blind as to which variety was which. We asked participants to (i) score each turrón in several parameters and (ii) guess which of 2 varieties was the expensive one.

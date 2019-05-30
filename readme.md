@@ -1,5 +1,5 @@
 # The Turron Experiment
-The Turron Experiment was a fun exercise conducted by [Eva Benito]() and [Alejandro Riera](http://github.com/ariera/) in 2019.
+The Turron Experiment was a fun exercise conducted by [Eva Benito Garagorri](https://github.com/evilla-19) and [Alejandro Riera Mainar](http://github.com/ariera/) in 2019.
 
 The main purpose was to learn (mainly Eva teaching Alex) things like experiment design, data collection, statistical analysis, reporting, and tools such as pandas, scipy, matplotlib & seaborn, etc...
 

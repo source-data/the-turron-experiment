@@ -410,6 +410,7 @@ def influence_of_fasting(melted):
     g.axes[0,2].set_title(f"flavour\ncorrelation: {correlations['flavour']['r_value']:1.3f}\np: {correlations['flavour']['p_value']:1.3f}")
     g.axes[0,3].set_title(f"overall\ncorrelation: {correlations['overall']['r_value']:1.3f}\np: {correlations['overall']['p_value']:1.3f}")
     g.fig.set_size_inches(9, 4)
+    g.axes[0,0].set_ylabel('score')
     g.axes[0,1].spines['left'].set_visible(False)
     g.axes[0,2].spines['left'].set_visible(False)
     g.axes[0,3].spines['left'].set_visible(False)
@@ -417,8 +418,6 @@ def influence_of_fasting(melted):
     g.axes[0,2].tick_params(length=0)
     g.axes[0,3].tick_params(length=0)
     g.axes[0,0].tick_params(length=0)
-    # ax.spines['top'].set_visible(False)
-    # ax.axes.set_ylabel('score')
     plt.suptitle(f'Influence of fasting')
     plt.subplots_adjust(top=0.75)
 
@@ -476,6 +475,7 @@ def influence_of_fasting_by_turron(melted):
     B: corr: {correlations['overall']['turron_B']['r_value']:1.3f}; p: {correlations['overall']['turron_B']['p_value']:1.3f}
     """)
     g.fig.set_size_inches(9, 4)
+    g.axes[0,0].set_ylabel('score')
     g.axes[0,1].spines['left'].set_visible(False)
     g.axes[0,2].spines['left'].set_visible(False)
     g.axes[0,3].spines['left'].set_visible(False)
@@ -485,8 +485,6 @@ def influence_of_fasting_by_turron(melted):
     g.axes[0,3].tick_params(length=0)
     # g.axes[0,0].xaxis.set_ticks([0, 10, 20])
     # g.axes[0,0].spines['left'].set_visible(False)
-    # ax.spines['top'].set_visible(False)
-    # ax.axes.set_ylabel('score')
     plt.suptitle(f'Influence of fasting')
     plt.subplots_adjust(top=0.70)
     plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
@@ -496,6 +494,71 @@ def influence_of_fasting_by_turron(melted):
 g = influence_of_fasting_by_turron(melted)
 g.savefig("results/influence_of_fasting_by_turron.png", facecolor=g.fig.get_facecolor())
 
+
+def influence_of_fasting_by_naiveness(melted):
+    melted_hours = melted[['variable', 'turron', 'hours since last eat', 'value', 'first_time_tasting']].dropna()
+    correlations  = {}
+    for variable in ['texture', 'visual', 'flavour', 'overall']:
+        correlations[variable] = {}
+        naives = melted_hours[(melted_hours['variable'] == variable) & (melted_hours['first_time_tasting'] == 'Y') ]
+        _, _, r_value_naive, p_value_naive, _ = scipy.stats.linregress(naives['hours since last eat'], naives['value'])
+        correlations[variable]['naive'] = {'r_value':r_value_naive, 'p_value':p_value_naive}
+        #
+        not_naives = melted_hours[(melted_hours['variable'] == variable) & (melted_hours['first_time_tasting'] == 'N') ]
+        _, _, r_value_not_naive, p_value_not_naive, _ = scipy.stats.linregress(not_naives['hours since last eat'], not_naives['value'])
+        correlations[variable]['not_naive'] = {'r_value':r_value_not_naive, 'p_value':p_value_not_naive}
+
+    g = sns.lmplot(
+        x='hours since last eat',
+        y='value',
+        data=melted_hours,
+        hue='first_time_tasting',
+        # palette={
+        #     'N': 'darksalmon',
+        #     'Y': 'mediumseagreen',
+        # },
+        height=8,
+        col='variable',
+        col_order=['texture', 'visual', 'flavour', 'overall'],
+        legend = False,
+    )
+    g.axes[0,0].set_title(f"""
+    texture
+    A: corr: {correlations['texture']['naive']['r_value']:1.3f}; p: {correlations['texture']['naive']['p_value']:1.3f}
+    B: corr: {correlations['texture']['not_naive']['r_value']:1.3f}; p: {correlations['texture']['not_naive']['p_value']:1.3f}
+    """)
+    g.axes[0,1].set_title(f"""
+    visual
+    A: corr: {correlations['visual']['naive']['r_value']:1.3f}; p: {correlations['visual']['naive']['p_value']:1.3f}
+    B: corr: {correlations['visual']['not_naive']['r_value']:1.3f}; p: {correlations['visual']['not_naive']['p_value']:1.3f}
+    """)
+    g.axes[0,2].set_title(f"""
+    flavour
+    A: corr: {correlations['flavour']['naive']['r_value']:1.3f}; p: {correlations['flavour']['naive']['p_value']:1.3f}
+    B: corr: {correlations['flavour']['not_naive']['r_value']:1.3f}; p: {correlations['flavour']['not_naive']['p_value']:1.3f}
+    """)
+    g.axes[0,3].set_title(f"""
+    overall
+    A: corr: {correlations['overall']['naive']['r_value']:1.3f}; p: {correlations['overall']['naive']['p_value']:1.3f}
+    B: corr: {correlations['overall']['not_naive']['r_value']:1.3f}; p: {correlations['overall']['not_naive']['p_value']:1.3f}
+    """)
+    g.fig.set_size_inches(9, 4)
+    g.axes[0,0].set_ylabel('score')
+    g.axes[0,1].spines['left'].set_visible(False)
+    g.axes[0,2].spines['left'].set_visible(False)
+    g.axes[0,3].spines['left'].set_visible(False)
+    g.axes[0,0].tick_params(length=0)
+    g.axes[0,1].tick_params(length=0)
+    g.axes[0,2].tick_params(length=0)
+    g.axes[0,3].tick_params(length=0)
+    plt.suptitle(f'Influence of fasting')
+    plt.subplots_adjust(top=0.70)
+    plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
+
+    return g
+
+g = influence_of_fasting_by_naiveness(melted)
+g.savefig("results/influence_of_fasting_by_naiveness.png", facecolor=g.fig.get_facecolor())
 
 
 

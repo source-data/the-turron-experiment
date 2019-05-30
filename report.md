@@ -22,7 +22,7 @@ Turrón variety #1 ('expensive_turrón' or 'turrón_A') cost 5x as much as turr�
 
 | ![](results/turrones.JPG) |
 |:--:|
-| *Image depicting the original packaging for both turrones and their approximate prices.* |
+| <small>*Image depicting the original packaging for both turrones and their approximate prices.*</small> |
 
 In addition to turrón-related parameters, we also asked participants to answer the following questions:
 
@@ -34,7 +34,7 @@ We also noted the gender of each participant on their questionnaire to analyse a
 
 | ![](results/turron_experimental_design.png) |
 |:--:|
-| *Experimental design. Participants were asked to blindly taste 2 differently priced variants of turrón. They were given the information that one turrón was significantly more expensive than the other one and then asked to fill out a questionnaire to rate each of the turrones by sweetness, texture, and visual parameters. They were also asked to have a guess at which of the 2 turrones was the expensive one.* |
+| <small>*Experimental design. Participants were asked to blindly taste 2 differently priced variants of turrón. They were given the information that one turrón was significantly more expensive than the other one and then asked to fill out a questionnaire to rate each of the turrones by sweetness, texture, and visual parameters. They were also asked to have a guess at which of the 2 turrones was the expensive one.* </small>|
 
 
 
@@ -140,6 +140,7 @@ P Value gender: female;	overall_A vs overall_B	= 0.8990 / delta mean 0.0714
 ### Guess rate analysis
 
 Data indicates participants couldn't correctly guess which turron was the expensive one.
+
 ![](results/guess_rate.png)
 
 ### Influence of previous tasting experience on scoring
@@ -154,7 +155,6 @@ we can see that the not-naive group was systematically rated better the more exp
 
 We also observe that they proved to be better at guessing which turron was the epensive one, 64% of them guessed correctly. In contrast, in the naive group, only 30% was guessed correctly.
 
-![](results/influence_of_naiveness_on_score.png)
 ![](results/influence_of_naiveness_on_score_x.png)
 
 
@@ -198,31 +198,4 @@ In these categories male score was bordered (on average) the 5.
 * Most participants were coherent in their scoring-guessing
 * Most people at EMBO have breakfast bw 7-9am
 * Some people cannot process information on our ballots
-
-## Q&A
-
-**Why did you do this?**
-We wanted to play around with data collection and analysis concepts and we thought conducting a real experiment would be fun and practical.
-
-**¿Why did you use turrón?**
-This was just by chance. Alex happened to have brought back 2 very differently priced varieties of the same kind of turrón from Spain so we went with that.
-
-**Why did you ask so many questions?**
-We wanted to collect as much data as possible in one go, so we asked about different aspects that have to do with taste and liking of turrón.
-
-**What's the main result?**
-That there is no difference in scoring between an expensive and a cheap turrón in a random sample of 24 participants that tasted blindly
-
-**How many people got it right?**
-50%
-
-**This is not really a serious experiment. Your sample size is too small. Your analysis is flawed. You did not formulate the right hypothesis [insert any other nasty (but probably true) statements here]**
-We know :-) We just wanted to play around with data collection and analysis concepts, this is just for demonstration purposes. Also, you were all wanting to know if you guessed correctly which one of the 2 turrones was the expensive one :-D
-
-**Can I see the data?**
-Yep! It's all right [here](data.csv)
-
-
-
-
 

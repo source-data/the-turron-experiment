@@ -1,56 +1,68 @@
 # The Turron Experiment
 The Turron Experiment was a fun exercise conducted by [Eva Benito]() and [Alejandro Riera](http://github.com/ariera/) in 2019.
 
-The main purpose was to learn (mainly Eva teaching Alex) things like experiment design, data collection, statistical analysis, reporting, and tools such as pandas, matplotlib, seaborn, etc...
+The main purpose was to learn (mainly Eva teaching Alex) things like experiment design, data collection, statistical analysis, reporting, and tools such as pandas, scipy, matplotlib & seaborn, etc...
 
-To do that, we conducted a turrón tasting experiment with the collaboration of EMBO staff. We asked participants to taste 2 turrón varieties, one that was expensive and one that was cheap. They didn't know which one was which, but they had to score it and guess.
-
-## What is it turrón?
-
-It is a typical spanish christmas sweet. Today comes in many different variations with all sort of ingredients, but the traditional one is made of almond and honey, in a shape and look similar to nougat in other countries.
-
-For this experiment we chose the _soft_ version, called _Jijona_ variety, in which the almonds are reduced to a delicious paste.
-
+To do that, **we conducted a turrón tasting experiment** with the collaboration of EMBO staff. Participants had to taste **2 different turrón varieties**, one that was **expensive** and one that was **cheap**. They didn't know which one was which, but **they had to score it and guess**.
 
 ## The study
 
 In this respository, you can find:
 
 * [The final report of our work](report.md)
-* [Along with the source data collected](data.csv)
-* [And our script to analyse it](analysis.py)
+* Along with the collected [source data](data.csv)
+* And our [analysis script](analysis.py)
 
-## Install
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install --upgrade pip setuptools
-pip install -r requirements
-```
+## F.A.Q.
 
-## Working with Jupyter Notebooks on VSCode
-
-The main analysis file is using the mixed VSCode / Jupyter syntax. You can run it as a normal python script, but you can also execute cell by cell and see the inmediate output _a la jupyter_ just within your code editor. Read more about it here: https://code.visualstudio.com/docs/python/jupyter-support
-
-Following these steps has advantage of allowing you to control which python version and which versions of libraries are available (specified on `requirements.txt`), instead of just running whatever python VSCode happens to find installed and not knowing which libraries or versions are available.
-
-1. Start a Jupyter server on your console
-    ```bash
-    source .venv/bin/activate
-    jupyter notebook
-    ```
-
-2. Check the url with the token that appears after starting the notebook server, looks like this
-
-    ```
-    http://localhost:8889/?token=bb3f6b9906d0e3d4c16ccf4fae862d795d908a0dbf75b3b6
-    ```
+#### Why did you do this?
+We wanted to play around with data collection and analysis concepts and we thought conducting a real experiment would be fun and practical.
 
 
-3. On VSCode run the command (`cmd` + `shift` + `p`) called `Python: specify jupyter server URI` and paste the address of your notebook
+#### What is it turrón?
 
-4. Open the python file with the code and run the first cell
+It is a typical spanish christmas sweet. Today comes in many different variations with all sort of ingredients, but the traditional one is made of almond and honey, in a shape and look similar to nougat in other countries.
 
+For this experiment we chose the _soft_ version, called _Jijona_ variety, in which the almonds are reduced to a delicious paste.
+
+![](800px-turron_blando_y_duro.jpg)
+<small>
+_image source: https://commons.wikimedia.org/wiki/File:Turr%C3%B3n_blando_y_duro.jpg_
+</small>
+
+#### Why did you use turrón?
+This was just by chance. Alex happened to have brought back 2 very differently priced varieties of the same kind of turrón from Spain so we went with that.
+
+#### Why did you ask so many questions?
+We wanted to collect as much data as possible in one go, so we asked about different aspects that have to do with taste and liking of turrón.
+
+#### What's the main result?
+That there is no difference in scoring between an expensive and a cheap turrón in a random sample of 24 participants that tasted blindly
+
+#### How many people got it right?
+50%
+
+#### This is not really a serious experiment. Your sample size is too small. Your analysis is flawed. You did not formulate the right hypothesis [insert any other nasty (but probably true) statements here]
+We know :-) We just wanted to play around with data collection and analysis concepts, this is just for demonstration purposes. Also, you were all wanting to know if you guessed correctly which one of the 2 turrones was the expensive one :-D
+
+#### Can I see the data?
+Yep! It's all right [here](data.csv)
+
+
+
+
+
+
+
+
+## Contributing & reproducibility
+
+Please refer to [the technical documentation](CONTRIBUTE.md) for instructions on how to run and reproduce our results.
+
+## License
+
+* code: [MIT License](https://opensource.org/licenses/MIT)
+* dataset and report: [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 
 # TODO:
 - [x] Hours: see if there is any correlation between score/type of turron and the numbers of hours since people last eat
@@ -73,3 +85,5 @@ Following these steps has advantage of allowing you to control which python vers
 - [x] remove sweetness from all analysis and graphs
 - [x] ask annika about cake&learn
 - [ ] MANOVA for first_time_tasting and gender_by_turron
+- [x] add license
+- [ ] cleanup readme

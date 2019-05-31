@@ -97,7 +97,7 @@ Our logic for statistical analysis was as follows:
 
 Some participants did not fully fill out the questionnaire and others answered some questions with non-numerical scores. We considered those instances 'missing data' and simply excluded them from each analysis as appropriate. We did not systematically invalidate a participant if they had one parameter with missing data but rather removed only missing values from each separate analysis (i.e. if a participant did not give an 'overall score' but still gave a 'texture score', we only excluded the overall score). This explains why we have different N numbers for each analysis, as detailed in the table below: 
 
-<img src="results/statistics_table.png" alt="stats table" style="width: 300px;"/>
+<img src="results/statistics_table.png" alt="stats table" style="width: 100px;"/>
 
 ## Results
 

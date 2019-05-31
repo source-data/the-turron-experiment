@@ -97,10 +97,21 @@ Our logic for statistical analysis was as follows:
 
 Some participants did not fully fill out the questionnaire and others answered some questions with non-numerical scores. We considered those instances 'missing data' and simply excluded them from each analysis as appropriate. We did not systematically invalidate a participant if they had one parameter with missing data but rather removed only missing values from each separate analysis (i.e. if a participant did not give an 'overall score' but still gave a 'texture score', we only excluded the overall score). This explains why we have different N numbers for each analysis, as detailed in the table below: 
 
-![](results/statistics_table.png)
-
+<img src="results/statistics_table.png" alt="stats table" style="width: 300px;"/>
 
 ## Results
+
+
+### Descriptive statistics
+
+The charts below show the general distribution of participants in terms of gender, naiveness (whether or not it was the first time they tasted turron) and fasting time before the tasting: 
+
+![](results/gender_distribution.png)
+![](results/naiveness_distribution.png)
+![](results/hours_since_last_eat_distribution.png)
+
+**TO-DO: fix background color issue**
+
 
 * turrón A vs B
 * gender general effect
@@ -110,16 +121,6 @@ Some participants did not fully fill out the questionnaire and others answered s
 * correlation with fasting
 * [for presentation only?] results of individual guessing accuracy
 
-
-### Descriptive statistics
-
-TO-DO: add graph/table for general statistics:
-
-* Total number of participants
-* Distribution male/female
-* Distribution naive/non-naive
-* Distribution number of hours since last eat
-  
 
 ### turron_A vs turron_B
 First we look at the scores that both _turrones_ received accross the different categories.

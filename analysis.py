@@ -87,6 +87,61 @@ df, melted = read_csv_and_preprocess_data("data.csv")
 df
 melted
 
+
+#%% [markdown]
+# ## Descriptive statistics
+#%%
+
+# Gender distribution
+
+labels = ['male', 'female']
+
+
+sizes = [df['gender'].value_counts()['male'],
+df['gender'].value_counts()['female']]
+
+print(sizes)
+fig1, ax1 = plt.subplots()
+ax1.pie(sizes, labels=labels, autopct='%1.1f%%', shadow=False)
+ax1.axis('equal')
+plt.show()
+
+g = fig1
+
+g.savefig("results/gender_distribution.png", facecolor=g.get_facecolor())
+
+# Naiveness distribution
+
+labels = ['naive', 'non-naive']
+
+
+sizes = [df['first_time_tasting'].value_counts()['Y'],
+df['first_time_tasting'].value_counts()['N']]
+
+print(sizes)
+fig1, ax1 = plt.subplots()
+ax1.pie(sizes, labels=labels, autopct='%1.1f%%', shadow=False)
+ax1.axis('equal')
+plt.show()
+
+g = fig1
+
+g.savefig("results/naiveness_distribution.png", facecolor=g.get_facecolor())
+
+
+#%%
+# Hours-since-last-eat distribution
+
+df_sorted_fasting = df.sort_values('hours since last eat')[['name', 'hours since last eat']]
+
+
+g = sns.catplot(x="name", y="hours since last eat", kind="bar", data=df_sorted_fasting, color = 'black')
+g.set_xticklabels(rotation=90)
+
+g.savefig("results/hours_since_last_eat_distribution.png", facecolor=g.get_facecolor())
+
+# TO-DO: fix background color issue
+
 #%% [markdown]
 # ## Comparing attributes between groups
 #

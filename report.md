@@ -97,6 +97,8 @@ Our logic for statistical analysis was as follows:
 
 Some participants did not fully fill out the questionnaire and others answered some questions with non-numerical scores. We considered those instances 'missing data' and simply excluded them from each analysis as appropriate. We did not systematically invalidate a participant if they had one parameter with missing data but rather removed only missing values from each separate analysis (i.e. if a participant did not give an 'overall score' but still gave a 'texture score', we only excluded the overall score). This explains why we have different N numbers for each analysis, as detailed in the table below: 
 
+![](results/statistics_table.pdf)
+
 
 ## Results
 
@@ -107,6 +109,17 @@ Some participants did not fully fill out the questionnaire and others answered s
 * coherence analysis
 * correlation with fasting
 * [for presentation only?] results of individual guessing accuracy
+
+
+### Descriptive statistics
+
+TO-DO: add graph/table for general statistics:
+
+* Total number of participants
+* Distribution male/female
+* Distribution naive/non-naive
+* Distribution number of hours since last eat
+  
 
 ### turron_A vs turron_B
 First we look at the scores that both _turrones_ received accross the different categories.

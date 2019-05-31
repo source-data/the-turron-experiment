@@ -97,7 +97,7 @@ Our logic for statistical analysis was as follows:
 
 Some participants did not fully fill out the questionnaire and others answered some questions with non-numerical scores. We considered those instances 'missing data' and simply excluded them from each analysis as appropriate. We did not systematically invalidate a participant if they had one parameter with missing data but rather removed only missing values from each separate analysis (i.e. if a participant did not give an 'overall score' but still gave a 'texture score', we only excluded the overall score). This explains why we have different N numbers for each analysis, as detailed in the table below: 
 
-<img src="results/statistics_table.png" alt="stats table" style="width: 100px;"/>
+<img src="results/statistics_table.png" alt="stats table" style="width: 300px;"/>
 
 ## Results
 
@@ -175,6 +175,11 @@ we can see that the not-naive group was systematically rated better the more exp
 We also observe that they proved to be better at guessing which turron was the epensive one, 64% of them guessed correctly. In contrast, in the naive group, only 30% was guessed correctly.
 
 ![](results/influence_of_naiveness_on_score_x.png)
+
+
+Just as an aside, we also plotted the success rate by gender, with a slight trend towards females having a better guessing score. This distribution reflect the general gender imbalance in the participants' pool, so it is far from being significant: 
+
+![](results/success_rate_by_gender.png)
 
 
 ### Coherence analysis

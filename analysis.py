@@ -138,10 +138,9 @@ df_sorted_fasting = df.sort_values('hours since last eat')[['name', 'hours since
 g = sns.catplot(x="name", y="hours since last eat", kind="bar", data=df_sorted_fasting, color = 'black')
 g.set_xticklabels(rotation=90)
 
-g.savefig("results/hours_since_last_eat_distribution.png", facecolor=g.get_facecolor())
+g.savefig("results/hours_since_last_eat_distribution.png")
 
-# TO-DO: fix background color issue
-
+# 
 #%% [markdown]
 # ## Comparing attributes between groups
 #
@@ -404,6 +403,30 @@ def success_rate_by_naiveness(df):
 
 fig, ax = success_rate_by_naiveness(df)
 fig.savefig("results/success_rate_by_naiveness.png", facecolor=fig.get_facecolor())
+
+#%%
+def success_rate_by_gender(df):
+    contingency = pd.crosstab(df.gender, df.correct_guess)
+    oddsratio, pvalue = stats.fisher_exact(contingency)
+    print(f"p-value: ", pvalue)
+    male = contingency.loc['male'].sum()
+    female = contingency.loc['female'].sum()
+    correct_male = contingency.loc['male', 'Y']
+    correct_female = contingency.loc['female', 'Y']
+    fig, ax = plt.subplots()
+    sns.barplot(
+        x=['male','female'],
+        y=[ correct_male/male, correct_female/female],
+        palette=PALETTE
+    )
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    plt.title(f'Success Rate\np: {pvalue:1.3f}')
+    return fig, ax
+
+fig, ax = success_rate_by_gender(df)
+fig.savefig("results/success_rate_by_gender.png", facecolor=fig.get_facecolor())
+
 #%% [markdown]
 # # Paired 2-way anova statistical analysis
 # https://raphaelvallat.com/pingouin.html

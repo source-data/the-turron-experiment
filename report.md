@@ -61,9 +61,7 @@ More specifically, we are aware of the following limitations:
 * Our starting material amounts of both turrones was rather small in size. This prevented us from conducting a more complex tasting experiment, such as presenting each candidate with several pieces of each of the turrones and asking them to have a guess for each of the pieces.
 * Time restrains: since we asked participants to voluntarily participate in the tasting experiment, we did not want to design a complicated experiment that would take up a lot of their time. An experiment like the one formulated above with multiple tasting could have been more informative but would have defied the objective to make it short and doable for participants.
 * Although we designed our questions in advance and tried to formulate them in the most clear way possible, we still encountered some instances in which the purpose of the question was not clear to participants. Such is the case of the question about "sweetness", in which participants were unclear whether we were asking them to rate sweetness level, or whether we were asking them to give the parameter sweetness a subjective score.
-* expectations
-    * small group
-    * score very similar in between turróns
+* In a tasting like this, we did not expect major differences in scoring of both turrones, simply because people tend to score around the median value and they are very unlikely to score very high or low unless one of the turrones would have been really untasty. So we were aware that detecting differences in scoring between both turrones was very unlikely in this scenario.
 
 ## Experimental design and procedure
 
@@ -72,22 +70,33 @@ The aim of the experiment was to **test whether a large price difference in turr
 
 We designed the experiment such that **each participant would taste both turrones**. We predefined a time frame of 1h in which participants would taste. We portioned each turrón into approximately 1cm3 pieces on 2 identical plates and located them in neighboring but separate rooms. We advised participants that they should score both turrones independently (to the extent possible). Participants were naive in what they were going to be asked about. As they arrived, we told them that there were 2 turrón varieties, one cheap, one expensive. We asked them to taste both and then score them  by filling in the questionnaire below. We also asked them to guess which one of the 2 turrones they thought was the expensive one.
 
-We noticed that the question about sweetness was ambiguous. Some participants scored how much they liked the sweetness of the turron, while others scored how sweet it tasted. Since the aim of the question was not unanimous we decided to exclude sweetness from the analysis.
-
-* logic for data collection
-* questions
-
-## Statistical analysis
-
-* Describe each of the analyses performed and the choice of test for each
-* Table with final n number (after NA removal) for each analysis
-* Missing data (and how to handle)
-
 ###  Data collection
 
 Data was collected using questionnaires that participants filled out right after tasting both turrones. The image below shows an example of a questionnaire:
 
 ![](results/questionnaire_1.JPG)
+
+We noticed that the question about sweetness was ambiguous. Some participants scored how much they liked the sweetness of the turron, while others scored how sweet it tasted. Since the aim of the question was not unanimous we decided to exclude sweetness from the analysis.
+
+
+
+## Statistical analysis
+
+### Statistical analysis
+
+Our logic for statistical analysis was as follows: 
+
+- For the gender general effect, we used an independent t-test for each parameter, as individuals compared (male vs. female) were not the same.
+- For the turron by gender effect, we used a 2-WAY ANOVA for each parameter, so that we could evaluate the main effect of gender, that of the turron and the interaction. We then carried out individual paired t-tests for each comparison between turrones within a given gender. We chose a paired t-test in this case because the individuals being compared across groups were the same.
+- For turron general scoring differences we used a paired t-test, as it was the same individuals tasting both turrones in each group.
+- For the turron by first-time-tasting interaction effect, we used a 2-WAY ANOVA to test for general effect of naiveness, general effect of turron and their interaction. We then used a paired t-test to compare within naive/non-naive groups, as in this case it was also the same individuals across compared groups.
+- For the effect of naiveness (having tasted turron before or not) on guess accuracy we used a Fischer's test.
+- For the correlation of hours-since-last-eat and turron scoring, we used a Pearson's correlation test.
+
+### Missing data
+
+Some participants did not fully fill out the questionnaire and others answered some questions with non-numerical scores. We considered those instances 'missing data' and simply excluded them from each analysis as appropriate. We did not systematically invalidate a participant if they had one parameter with missing data but rather removed only missing values from each separate analysis (i.e. if a participant did not give an 'overall score' but still gave a 'texture score', we only excluded the overall score). This explains why we have different N numbers for each analysis, as detailed in the table below: 
+
 
 ## Results
 

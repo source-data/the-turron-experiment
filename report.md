@@ -84,7 +84,7 @@ We noticed that the question about sweetness was ambiguous. Some participants sc
 
 ### Statistical analysis
 
-Our logic for statistical analysis was as follows: 
+Our logic for statistical analysis was as follows:
 
 - For the gender general effect, we used an independent t-test for each parameter, as individuals compared (male vs. female) were not the same.
 - For the turron by gender effect, we used a 2-WAY ANOVA for each parameter, so that we could evaluate the main effect of gender, that of the turron and the interaction. We then carried out individual paired t-tests for each comparison between turrones within a given gender. We chose a paired t-test in this case because the individuals being compared across groups were the same.
@@ -95,7 +95,7 @@ Our logic for statistical analysis was as follows:
 
 ### Missing data
 
-Some participants did not fully fill out the questionnaire and others answered some questions with non-numerical scores. We considered those instances 'missing data' and simply excluded them from each analysis as appropriate. We did not systematically invalidate a participant if they had one parameter with missing data but rather removed only missing values from each separate analysis (i.e. if a participant did not give an 'overall score' but still gave a 'texture score', we only excluded the overall score). This explains why we have different N numbers for each analysis, as detailed in the table below: 
+Some participants did not fully fill out the questionnaire and others answered some questions with non-numerical scores. We considered those instances 'missing data' and simply excluded them from each analysis as appropriate. We did not systematically invalidate a participant if they had one parameter with missing data but rather removed only missing values from each separate analysis (i.e. if a participant did not give an 'overall score' but still gave a 'texture score', we only excluded the overall score). This explains why we have different N numbers for each analysis, as detailed in the table below:
 
 <img src="results/statistics_table.png" alt="stats table" style="width: 300px;"/>
 
@@ -104,22 +104,11 @@ Some participants did not fully fill out the questionnaire and others answered s
 
 ### Descriptive statistics
 
-The charts below show the general distribution of participants in terms of gender, naiveness (whether or not it was the first time they tasted turron) and fasting time before the tasting: 
+The charts below show the general distribution of participants in terms of gender, naiveness (whether or not it was the first time they tasted turron) and fasting time before the tasting:
 
 ![](results/gender_distribution.png)
 ![](results/naiveness_distribution.png)
 ![](results/hours_since_last_eat_distribution.png)
-
-**TO-DO: fix background color issue**
-
-
-* turrón A vs B
-* gender general effect
-* turrón:gender
-* turrón:first_time_tasting
-* coherence analysis
-* correlation with fasting
-* [for presentation only?] results of individual guessing accuracy
 
 
 ### turron_A vs turron_B
@@ -177,7 +166,7 @@ We also observe that they proved to be better at guessing which turron was the e
 ![](results/influence_of_naiveness_on_score_x.png)
 
 
-Just as an aside, we also plotted the success rate by gender, with a slight trend towards females having a better guessing score. This distribution reflect the general gender imbalance in the participants' pool, so it is far from being significant: 
+Just as an aside, we also plotted the success rate by gender, with a slight trend towards females having a better guessing score. This distribution reflect the general gender imbalance in the participants' pool, so it is far from being significant:
 
 ![](results/success_rate_by_gender.png)
 

@@ -18,6 +18,15 @@ PALETTE = {
     'male': 'dodgerblue',
     'female': 'tomato',
 }
+
+def save_figure(fig, name, format='pdf', dpi=300, **kwargs):
+    fig.savefig(
+        f"results/{name}",
+        facecolor=fig.get_facecolor(),
+        format=format,
+        dpi=dpi,
+        **kwargs
+    )
 # %%
 
 def read_csv_and_preprocess_data(filename):
@@ -107,9 +116,10 @@ ax1.pie(sizes, labels=labels, autopct='%1.1f%%', shadow=False)
 ax1.axis('equal')
 plt.show()
 
-g = fig1
 
-g.savefig("results/gender_distribution.png", facecolor=g.get_facecolor())
+save_figure(fig1, "gender_distribution.pdf")
+save_figure(fig1, "gender_distribution.png", format='png')
+
 
 # Naiveness distribution
 
@@ -128,9 +138,9 @@ ax1.pie(sizes, labels=labels, autopct='%1.1f%%', shadow=False)
 ax1.axis('equal')
 plt.show()
 
-g = fig1
 
-g.savefig("results/naiveness_distribution.png", facecolor=g.get_facecolor())
+save_figure(fig1, "naiveness_distribution.pdf")
+save_figure(fig1, "naiveness_distribution.png", format='png')
 
 
 #%%
@@ -142,7 +152,8 @@ df_sorted_fasting = df.sort_values('hours since last eat')[['name', 'hours since
 g = sns.catplot(x="name", y="hours since last eat", kind="bar", data=df_sorted_fasting, color = 'black')
 g.set_xticklabels(rotation=90)
 
-g.savefig("results/hours_since_last_eat_distribution.png",facecolor = g.fig.get_facecolor())
+save_figure(g.fig, "hours_since_last_eat_distribution.pdf")
+save_figure(g.fig, "png., format='png'pdf")
 
 #
 #%% [markdown]
@@ -182,7 +193,8 @@ def gender_general_effect(melted):
     return g
 
 g = gender_general_effect(melted)
-g.savefig("results/gender_general_effect.png", facecolor=g.fig.get_facecolor())
+save_figure(g.fig, "gender_general_effect.pdf")
+save_figure(g.fig, "png., format='png'pdf")
 ####################################################################################################
 #%% [markdown]
 # ### Turron by Gender
@@ -212,7 +224,8 @@ def turron_by_gender2(melted):
 
     return g
 g = turron_by_gender2(melted)
-g.savefig("results/turron_by_gender.png", facecolor=g.fig.get_facecolor())
+save_figure(g.fig, "turron_by_gender.pdf")
+save_figure(g.fig, "png., format='png'pdf")
 
 
 #%% [markdown]
@@ -272,7 +285,8 @@ def turron_general(melted):
     g.axes[0,0].xaxis.label.set_visible(False)
     return g
 g = turron_general(melted)
-g.savefig("results/turron_general.png", facecolor=g.fig.get_facecolor())
+save_figure(g.fig, "turron_general.pdf")
+save_figure(g.fig, "png., format='png'pdf")
 #%%
 sns.catplot(x="variable", y="value", hue="first_time_tasting", kind="bar", data=melted)
 sns.catplot(x="variable", y="value", hue="correct_guess", kind="bar", data=melted)
@@ -328,7 +342,8 @@ def turron_by_first_time_tasting2(melted):
 
     return g
 g = turron_by_first_time_tasting2(melted)
-g.savefig("results/turron_by_first_time_tasting.png", facecolor=g.fig.get_facecolor())
+save_figure(g.fig, "turron_by_first_time_tasting.pdf")
+save_figure(g.fig, "png., format='png'pdf")
 
 #%% [markdown]
 # ### Turron by first time tasting 2-WAY ANOVA
@@ -408,7 +423,8 @@ def turron_by_correct_guess2(melted):
 
     return g
 g = turron_by_correct_guess2(melted)
-g.savefig("results/turron_by_correct_guess.png", facecolor=g.fig.get_facecolor())
+save_figure(g.fig, "turron_by_correct_guess.pdf")
+save_figure(g.fig, "png., format='png'pdf")
 
 #%%
 
@@ -427,7 +443,8 @@ fig1, ax1 = plt.subplots()
 ax1.pie(sizes, labels=labels, autopct='%1.1f%%', shadow=False)
 ax1.axis('equal')
 
-fig1.savefig("results/guess_distribution.pdf", facecolor=g.get_facecolor(), format='pdf', dpi=300)
+save_figure(g.fig, "guess_distribution.pdf")
+save_figure(g.fig, "png., format='png'pdf")
 
 
 
@@ -455,7 +472,8 @@ def success_rate_by_naiveness(df):
     return fig, ax
 
 fig, ax = success_rate_by_naiveness(df)
-fig.savefig("results/success_rate_by_naiveness.png", facecolor=fig.get_facecolor())
+save_figure(fig, "success_rate_by_naiveness.pdf")
+save_figure(fig, "success_rate_by_naiveness.png", format='png')
 
 
 
@@ -481,7 +499,8 @@ def success_rate_by_gender(df):
     return fig, ax
 
 fig, ax = success_rate_by_gender(df)
-fig.savefig("results/success_rate_by_gender.png", facecolor=fig.get_facecolor())
+save_figure(fig, "success_rate_by_gender.pdf")
+save_figure(fig, "success_rate_by_gender.png", format='png')
 
 #%% [markdown]
 # # Paired 2-way anova statistical analysis
@@ -558,7 +577,8 @@ def influence_of_fasting(melted):
     return g
 
 g = influence_of_fasting(melted)
-g.savefig("results/influence_of_fasting.png", facecolor=g.fig.get_facecolor())
+save_figure(g.fig, "influence_of_fasting.pdf")
+save_figure(g.fig, "png., format='png'pdf")
 
 
 
@@ -626,7 +646,8 @@ def influence_of_fasting_by_turron(melted):
     return g
 
 g = influence_of_fasting_by_turron(melted)
-g.savefig("results/influence_of_fasting_by_turron.png", facecolor=g.fig.get_facecolor())
+save_figure(g.fig, "influence_of_fasting_by_turron.pdf")
+save_figure(g.fig, "png., format='png'pdf")
 
 
 def influence_of_fasting_by_naiveness(melted):
@@ -692,7 +713,8 @@ def influence_of_fasting_by_naiveness(melted):
     return g
 
 g = influence_of_fasting_by_naiveness(melted)
-g.savefig("results/influence_of_fasting_by_naiveness.png", facecolor=g.fig.get_facecolor())
+save_figure(g.fig, "influence_of_fasting_by_naiveness.pdf")
+save_figure(g.fig, "png., format='png'pdf")
 
 
 
@@ -763,7 +785,8 @@ def preference_coherence(df):
     fig.set_size_inches(10, 2, forward=True)
     return fig, ax
 fig, ax = preference_coherence(df)
-fig.savefig("results/preference_coherence.png", facecolor=fig.get_facecolor(), bbox_inches='tight')
+save_figure(fig, "preference_coherence.pdf", bbox_inches='tight')
+save_figure(fig, "preference_coherence.png", format='png', bbox_inches='tight')
 
 #%%
 
@@ -881,5 +904,6 @@ def guess_rate(df):
 
     return fig, ax
 fig, ax = guess_rate(df)
-fig.savefig("results/guess_rate.png", facecolor=fig.get_facecolor(), bbox_inches='tight')
+save_figure(fig, "guess_rate.pdf")
+save_figure(fig, "guess_rate.png", format='png')
 

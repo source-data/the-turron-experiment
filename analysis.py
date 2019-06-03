@@ -112,7 +112,7 @@ g.savefig("results/gender_distribution.png", facecolor=g.get_facecolor())
 
 # Naiveness distribution
 
-labels = ['naive', 'non-naive']
+labels = ['naive', 'non-naive', 'NA']
 
 
 sizes = [df['first_time_tasting'].value_counts()['Y'],
@@ -138,7 +138,7 @@ df_sorted_fasting = df.sort_values('hours since last eat')[['name', 'hours since
 g = sns.catplot(x="name", y="hours since last eat", kind="bar", data=df_sorted_fasting, color = 'black')
 g.set_xticklabels(rotation=90)
 
-g.savefig("results/hours_since_last_eat_distribution.png")
+g.savefig("results/hours_since_last_eat_distribution.png",facecolor = g.fig.get_facecolor())
 
 # 
 #%% [markdown]
@@ -221,7 +221,6 @@ for variable in ['texture', 'visual', 'flavour', 'overall']:
     aov_table = anova_lm(model, typ=2)
     print('2-WAY ANOVA table for ' + variable)
     print(aov_table)
-
 
 
 #%% [markdown]

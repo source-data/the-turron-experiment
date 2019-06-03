@@ -150,10 +150,10 @@ df_sorted_fasting = df.sort_values('hours since last eat')[['name', 'hours since
 
 
 g = sns.catplot(x="name", y="hours since last eat", kind="bar", data=df_sorted_fasting, color = 'black')
-g.set_xticklabels(rotation=90)
+g.set_xticklabels(rotation=80)
 
-save_figure(g.fig, "hours_since_last_eat_distribution.pdf")
-save_figure(g.fig, "png., format='png'pdf")
+save_figure(g.fig, "hours_since_last_eat_distribution.pdf", bbox_inches='tight')
+save_figure(g.fig, "hours_since_last_eat_distribution.png", format='png')
 
 #
 #%% [markdown]
@@ -194,7 +194,7 @@ def gender_general_effect(melted):
 
 g = gender_general_effect(melted)
 save_figure(g.fig, "gender_general_effect.pdf")
-save_figure(g.fig, "png., format='png'pdf")
+save_figure(g.fig, "gender_general_effect.png", format='png')
 ####################################################################################################
 #%% [markdown]
 # ### Turron by Gender
@@ -225,7 +225,7 @@ def turron_by_gender2(melted):
     return g
 g = turron_by_gender2(melted)
 save_figure(g.fig, "turron_by_gender.pdf")
-save_figure(g.fig, "png., format='png'pdf")
+save_figure(g.fig, "turron_by_gender.png", format='png')
 
 
 #%% [markdown]
@@ -286,7 +286,7 @@ def turron_general(melted):
     return g
 g = turron_general(melted)
 save_figure(g.fig, "turron_general.pdf")
-save_figure(g.fig, "png., format='png'pdf")
+save_figure(g.fig, "turron_general.png", format='png')
 #%%
 sns.catplot(x="variable", y="value", hue="first_time_tasting", kind="bar", data=melted)
 sns.catplot(x="variable", y="value", hue="correct_guess", kind="bar", data=melted)
@@ -343,7 +343,7 @@ def turron_by_first_time_tasting2(melted):
     return g
 g = turron_by_first_time_tasting2(melted)
 save_figure(g.fig, "turron_by_first_time_tasting.pdf")
-save_figure(g.fig, "png., format='png'pdf")
+save_figure(g.fig, "turron_by_first_time_tasting.png", format='png')
 
 #%% [markdown]
 # ### Turron by first time tasting 2-WAY ANOVA
@@ -424,7 +424,7 @@ def turron_by_correct_guess2(melted):
     return g
 g = turron_by_correct_guess2(melted)
 save_figure(g.fig, "turron_by_correct_guess.pdf")
-save_figure(g.fig, "png., format='png'pdf")
+save_figure(g.fig, "turron_by_correct_guess.png", format='png')
 
 #%%
 
@@ -444,7 +444,7 @@ ax1.pie(sizes, labels=labels, autopct='%1.1f%%', shadow=False)
 ax1.axis('equal')
 
 save_figure(g.fig, "guess_distribution.pdf")
-save_figure(g.fig, "png., format='png'pdf")
+save_figure(g.fig, "guess_distribution.png", format='png')
 
 
 
@@ -577,8 +577,8 @@ def influence_of_fasting(melted):
     return g
 
 g = influence_of_fasting(melted)
-save_figure(g.fig, "influence_of_fasting.pdf")
-save_figure(g.fig, "png., format='png'pdf")
+save_figure(g.fig, "influence_of_fasting.pdf", bbox_inches='tight')
+save_figure(g.fig, "influence_of_fasting.png", format='png')
 
 
 
@@ -646,8 +646,8 @@ def influence_of_fasting_by_turron(melted):
     return g
 
 g = influence_of_fasting_by_turron(melted)
-save_figure(g.fig, "influence_of_fasting_by_turron.pdf")
-save_figure(g.fig, "png., format='png'pdf")
+save_figure(g.fig, "influence_of_fasting_by_turron.pdf", bbox_inches='tight')
+save_figure(g.fig, "influence_of_fasting_by_turron.png", format='png')
 
 
 def influence_of_fasting_by_naiveness(melted):
@@ -712,9 +712,9 @@ def influence_of_fasting_by_naiveness(melted):
 
     return g
 
-g = influence_of_fasting_by_naiveness(melted)
-save_figure(g.fig, "influence_of_fasting_by_naiveness.pdf")
-save_figure(g.fig, "png., format='png'pdf")
+# g = influence_of_fasting_by_naiveness(melted)
+# save_figure(g.fig, "influence_of_fasting_by_naiveness.pdf")
+# save_figure(g.fig, "influence_of_fasting_by_naiveness.png", format='png')
 
 
 

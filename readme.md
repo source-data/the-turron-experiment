@@ -87,3 +87,4 @@ Please refer to [the technical documentation](CONTRIBUTE.md) for instructions on
 - [ ] MANOVA for first_time_tasting and gender_by_turron
 - [x] add license
 - [ ] cleanup readme
+- [ ] presentation

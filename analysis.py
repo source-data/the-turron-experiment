@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import statsmodels
 from statsmodels.formula.api import ols
 from statsmodels.stats.anova import anova_lm
+from statsmodels.stats.multicomp import MultiComparison
 
 plt.style.use('tableau-colorblind10')
 sns.set(style="ticks")
@@ -140,7 +141,7 @@ g.set_xticklabels(rotation=90)
 
 g.savefig("results/hours_since_last_eat_distribution.png",facecolor = g.fig.get_facecolor())
 
-# 
+#
 #%% [markdown]
 # ## Comparing attributes between groups
 #
@@ -221,6 +222,20 @@ for variable in ['texture', 'visual', 'flavour', 'overall']:
     aov_table = anova_lm(model, typ=2)
     print('2-WAY ANOVA table for ' + variable)
     print(aov_table)
+
+
+# %%
+def posthoc_turron_by_gender(melted, variable):
+    df = melted.copy()
+    df = df[df['variable'] == variable]
+    df['turron:gender'] = df['turron'] + "_" + df['gender']
+    mc = MultiComparison(df['value'], df['turron:gender'])
+    result = mc.tukeyhsd()
+    print(result)
+for variable in ['texture', 'visual', 'flavour', 'overall']:
+    print()
+    print(f"Posthoc test turron:{variable}")
+    posthoc_turron_by_gender(melted,variable)
 
 
 #%% [markdown]
@@ -324,27 +339,44 @@ for variable in ['texture', 'visual', 'flavour', 'overall']:
     print('2-WAY ANOVA table for ' + variable)
     print(aov_table)
 
-
+#%% [markdown]
+# ### Turron by first time tasting posthoc
+def posthoc_turron_by_first_time_tasting(melted, variable):
+    df = melted.copy()
+    df = df[df['variable'] == variable].dropna()
+    df['turron:first_time_tasting'] = df['turron'] + "_" + df['first_time_tasting']
+    mc = MultiComparison(df['value'], df['turron:first_time_tasting'])
+    res = mc.tukeyhsd()
+    from statsmodels.stats.libqsturng import psturng
+    p_values = psturng(np.abs(res.meandiffs / res.std_pairs), len(res.groupsunique), res.df_total)
+    print(p_values)
+    print(res)
+for variable in ['texture', 'visual', 'flavour', 'overall']:
+    print()
+    print(f"Posthoc test turron:{variable}")
+    posthoc_turron_by_first_time_tasting(melted,variable)
 
 #%% [markdown]
 # ## Turron by first time tasting comparisons
 
-comparisons = (
-    ('flavour_A', 'flavour_B'),
-    ('visual_A', 'visual_B'),
-    ('texture_A', 'texture_B'),
-    ('overall_A', 'overall_B'),
-)
+def paired_t_test_turron_by_naiveness(df):
+    df = df.copy()
+    comparisons = (
+        ('flavour_A', 'flavour_B'),
+        ('visual_A', 'visual_B'),
+        ('texture_A', 'texture_B'),
+        ('overall_A', 'overall_B'),
+    )
 
-for (cat_A, cat_B) in comparisons:
-    for first_time_taster in ('N', 'Y',):
-        df_cat = df[[cat_A, cat_B, 'first_time_tasting']].dropna()
-        df_cat['delta'] = df_cat[cat_A] - df_cat[cat_B]
-        df_cat = df_cat[df_cat['first_time_tasting'] == first_time_taster]
+    for (cat_A, cat_B) in comparisons:
+        for first_time_taster in ('N', 'Y',):
+            df_cat = df[[cat_A, cat_B, 'first_time_tasting']].dropna()
+            df_cat['delta'] = df_cat[cat_A] - df_cat[cat_B]
+            df_cat = df_cat[df_cat['first_time_tasting'] == first_time_taster]
 
-        statistic, pvalue = stats.ttest_rel(df_cat[cat_A], df_cat[cat_B])
-        print(f"P Value first_time_tasting: {first_time_taster};\t{cat_A} vs {cat_B}\t= {pvalue:1.4f} / delta mean {df_cat['delta'].mean():1.4f}")
-
+            statistic, pvalue = stats.ttest_rel(df_cat[cat_A], df_cat[cat_B])
+            print(f"P Value first_time_tasting: {first_time_taster};\t{cat_A} vs {cat_B}\t= {pvalue:1.4f} / delta mean {df_cat['delta'].mean():1.4f}")
+paired_t_test_turron_by_naiveness(df)
 
 #%%
 def turron_by_correct_guess2(melted):
@@ -825,3 +857,4 @@ def guess_rate(df):
     return fig, ax
 fig, ax = guess_rate(df)
 fig.savefig("results/guess_rate.png", facecolor=fig.get_facecolor(), bbox_inches='tight')
+

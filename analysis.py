@@ -193,7 +193,7 @@ def gender_general_effect(melted):
     return g
 
 g = gender_general_effect(melted)
-save_figure(g.fig, "gender_general_effect.pdf")
+save_figure(g.fig, "gender_general_effect.pdf", bbox_inches='tight')
 save_figure(g.fig, "gender_general_effect.png", format='png')
 ####################################################################################################
 #%% [markdown]

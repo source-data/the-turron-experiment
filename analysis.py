@@ -115,9 +115,12 @@ g.savefig("results/gender_distribution.png", facecolor=g.get_facecolor())
 
 labels = ['naive', 'non-naive', 'NA']
 
+df_naive = df.fillna('NA')
 
-sizes = [df['first_time_tasting'].value_counts()['Y'],
-df['first_time_tasting'].value_counts()['N']]
+sizes = [df_naive['first_time_tasting'].value_counts()['Y'],
+df_naive['first_time_tasting'].value_counts()['N'],
+df_naive['first_time_tasting'].value_counts()['NA']
+]
 
 print(sizes)
 fig1, ax1 = plt.subplots()
@@ -407,6 +410,25 @@ def turron_by_correct_guess2(melted):
 g = turron_by_correct_guess2(melted)
 g.savefig("results/turron_by_correct_guess.png", facecolor=g.fig.get_facecolor())
 
+#%%
+
+# guess distribution
+
+
+
+labels = ['A', 'B']
+
+
+sizes = [df['guess_expensive'].value_counts()['A'],
+df['guess_expensive'].value_counts()['B']]
+
+print(sizes)
+fig1, ax1 = plt.subplots()
+ax1.pie(sizes, labels=labels, autopct='%1.1f%%', shadow=False)
+ax1.axis('equal')
+
+fig1.savefig("results/guess_distribution.pdf", facecolor=g.get_facecolor(), format='pdf', dpi=300)
+
 
 
 #%%
@@ -434,6 +456,9 @@ def success_rate_by_naiveness(df):
 
 fig, ax = success_rate_by_naiveness(df)
 fig.savefig("results/success_rate_by_naiveness.png", facecolor=fig.get_facecolor())
+
+
+
 
 #%%
 def success_rate_by_gender(df):

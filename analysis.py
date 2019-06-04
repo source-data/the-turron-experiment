@@ -573,12 +573,13 @@ def influence_of_fasting(melted):
     g.axes[0,0].tick_params(length=0)
     plt.suptitle(f'Influence of fasting')
     plt.subplots_adjust(top=0.75)
+    plt.xlim(-2,21)
 
     return g
 
 g = influence_of_fasting(melted)
 save_figure(g.fig, "influence_of_fasting.pdf", bbox_inches='tight')
-save_figure(g.fig, "influence_of_fasting.png", format='png')
+save_figure(g.fig, "influence_of_fasting.png", format='png', bbox_inches='tight')
 
 
 
@@ -642,12 +643,13 @@ def influence_of_fasting_by_turron(melted):
     plt.suptitle(f'Influence of fasting')
     plt.subplots_adjust(top=0.70)
     plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
+    plt.xlim(-2,21)
 
     return g
 
 g = influence_of_fasting_by_turron(melted)
 save_figure(g.fig, "influence_of_fasting_by_turron.pdf", bbox_inches='tight')
-save_figure(g.fig, "influence_of_fasting_by_turron.png", format='png')
+save_figure(g.fig, "influence_of_fasting_by_turron.png", format='png', bbox_inches='tight')
 
 
 def influence_of_fasting_by_naiveness(melted):

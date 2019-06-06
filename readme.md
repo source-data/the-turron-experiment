@@ -63,28 +63,3 @@ Please refer to [the technical documentation](CONTRIBUTE.md) for instructions on
 
 * code: [MIT License](https://opensource.org/licenses/MIT)
 * dataset and report: [CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/)
-
-# TODO:
-- [x] Hours: see if there is any correlation between score/type of turron and the numbers of hours since people last eat
-- [x] Delta: calculate the difference between turron A and B (delta) to see differences (maybe plot this bar charts that go up/down or left/right)
-- [x] calculate all the paired tests
-- [x] Contradiccion: look for patterns were people liked better A but thought B was the expensive one (or viceversa)
-- [x] analyse gender by turron interaction
-- [x] structure report
-- cleanup
-    - [x] one melted to rule them all
-    - [x] group analysis by theme
-- writting report
-    - Alex:
-        - [x] results
-        - [x] conclussions
-    - Eva:
-        - [x] Intro
-        - [x] Experimental design
-- [x] make better use of color to help differentiatie turron (a vs b) and gender (male vs female)
-- [x] remove sweetness from all analysis and graphs
-- [x] ask annika about cake&learn
-- [ ] MANOVA for first_time_tasting and gender_by_turron
-- [x] add license
-- [ ] cleanup readme
-- [ ] presentation
